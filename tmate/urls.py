@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     url(r'^logout$', 'django.contrib.auth.views.logout_then_login', name='logout'),
     url(r'^register$', register, name='register'),
 
+    url(r'^confirm-registration/(?P<username>[a-zA-Z0-9_@\+\-]+)/(?P<token>[a-z0-9\-]+)$', confirm_registration, name='confirm'),
+
         )
 
 handler404 = 'tmate.views.page_not_found'

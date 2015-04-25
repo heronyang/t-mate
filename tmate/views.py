@@ -1,16 +1,24 @@
-from django.shortcuts import render
-
 from django.views.decorators.csrf import requires_csrf_token
 
 # Django transaction system so we can use @transaction.atomic
 from django.db import transaction
+
+# Used to generate a one-time-use token to verify a user's email address
+from django.contrib.auth.tokens import default_token_generator
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, Http404
+from django.shortcuts import render, redirect, get_object_or_404
+
+# Used to send mail from within Django
+from django.core.mail import send_mail
 
 # App
 from tmate.models import *
 from tmate.forms import *
 
 def index(request):
-    context = {}
+    profiles = Profile.objects.all()
+    context = {'profiles': profiles, }
     return render(request, 'tmate/index.html', context)
 
 @transaction.atomic
@@ -63,3 +71,18 @@ verify your email address and complete the registration of your account:
 
     context['email'] = form.cleaned_data['email']
     return render(request, 'tmate/needs-confirmation.html', context)
+
+@transaction.atomic
+def confirm_registration(request, username, token):
+    user = get_object_or_404(User, username=username)
+
+    # Send 404 error if token is invalid
+    if not default_token_generator.check_token(user, token):
+        raise Http404
+
+    # Otherwise token was valid, activate the user.
+    user.is_active = True
+    user.save()
+    return render(request, 'tmate/confirmed.html', {})
+
+

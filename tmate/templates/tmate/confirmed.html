@@ -3,17 +3,14 @@
 {% block nav %}
 {% endblock %}
 
+{% block title %}Register{% endblock %}
+
 {% block static %}
 {% endblock %}
 
 {% block content %}
-<h1>This is Index Page</h1>
-
-{% for profile in profiles %}
-<p>username: {{profile.username}}</p>
-<p>print name: {{profile.print_name}}</p>
-{% endfor %}
-
+<h1>Confirmed</h1>
+<a href="/">Go to Home Page</a>
 {% endblock %}
 
 {% block js %}

@@ -8,6 +8,9 @@ class HashTag(models.Model):
     ctime       = models.DateTimeField(auto_now_add=True)
     content     = models.CharField(max_length=const.SHORT_TEXT_LENGTH)
 
+    def __unicode__(self):
+        return self.content
+
 #
 class Profile(models.Model):
 
@@ -51,5 +54,5 @@ class Profile(models.Model):
         return self.picture_url
 
     def __unicode__(self):
-        return '[Profile: ' + self.username + ', credit: ' + str(self.credit) + ']';
+        return '[Profile: ' + self.username + ', credit: ' + str(self.credit) + ']'
 

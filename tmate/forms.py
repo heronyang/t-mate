@@ -12,7 +12,7 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        exclude = ('user', )
+        exclude = ('user', 'picture_url', )
         labels = {}
         help_texts = {}
 
@@ -32,18 +32,6 @@ class ProfileForm(forms.ModelForm):
     password2  = forms.CharField(max_length = 200,
                                  label='Confirm password',
                                  widget = forms.PasswordInput())
-
-    def clean_image(self):
-
-        image = self.cleaned_data['image']
-
-        if not image:
-        	raise forms.ValidationError('No file choosen')
-        if not image.content_type or not image.content_type.startswith('image'):
-            raise forms.ValidationError('File type is not image')
-        if image.size > const.MAX_UPLOAD_SIZE:
-            raise forms.ValidationError('File too big (max size is {0} bytes)'.format(const.MAX_UPLOAD_SIZE))
-        return image
 
     def clean(self):
 
@@ -69,3 +57,17 @@ class ProfileForm(forms.ModelForm):
         # We must return the cleaned data we got from the cleaned_data
         # dictionary
         return username
+
+    def clean_image(self):
+
+        image = self.cleaned_data['image']
+
+        if not image:
+            # can be optional
+            return image
+        if not image.content_type or not image.content_type.startswith('image'):
+            raise forms.ValidationError('File type is not image')
+        if image.size > const.MAX_UPLOAD_SIZE:
+            raise forms.ValidationError('File too big (max size is {0} bytes)'.format(const.MAX_UPLOAD_SIZE))
+        return image
+

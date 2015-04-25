@@ -116,3 +116,6 @@ EMAIL_HOST_USER = config.get('Gmail', 'User')
 EMAIL_HOST_PASSWORD = config.get('Gmail', 'Password')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+print 'user: ' + EMAIL_HOST_USER
+print 'password: ' + EMAIL_HOST_PASSWORD
