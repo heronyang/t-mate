@@ -119,3 +119,9 @@ EMAIL_USE_TLS = True
 
 print 'user: ' + EMAIL_HOST_USER
 print 'password: ' + EMAIL_HOST_PASSWORD
+
+# S3
+### Static Storage ###
+AWS_ACCESS_KEY = config.get('S3', 'AccessKey')
+AWS_SECRET_ACCESS_KEY = config.get('S3', 'SecretKey')
+S3_BUCKET = config.get('S3', 'Bucket')

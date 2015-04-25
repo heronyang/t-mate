@@ -54,5 +54,5 @@ class Profile(models.Model):
         return self.picture_url
 
     def __unicode__(self):
-        return '[Profile: ' + self.username + ', credit: ' + str(self.credit) + ']'
+        return '[Profile: ' + self.username + ']'
 

@@ -9,13 +9,15 @@
 {% endblock %}
 
 {% block content %}
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
 <table>
 {{form.as_table}}
 {% csrf_token %}
 </table>
 <button type="submit">Submit</button>
 </form>
+
+<a href="{% url 'index' %}">Home</a>
 
 {% endblock %}
 

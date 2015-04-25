@@ -16,7 +16,7 @@ class ProfileForm(forms.ModelForm):
         labels = {}
         help_texts = {}
 
-    image = forms.FileField(required=False)
+    image      = forms.FileField(required=False)
 
     first_name = forms.CharField(max_length=20)
     last_name  = forms.CharField(max_length=20)

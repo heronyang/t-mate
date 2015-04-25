@@ -12,7 +12,10 @@
 {% for profile in profiles %}
 <p>username: {{profile.username}}</p>
 <p>print name: {{profile.print_name}}</p>
+<p>image: <img src="{{profile.picture_url}}" alt="no image"/></p>
 {% endfor %}
+
+<a href="{% url 'register' %}">Register</a>
 
 {% endblock %}
 

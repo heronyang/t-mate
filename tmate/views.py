@@ -15,6 +15,9 @@ from django.core.mail import send_mail
 # App
 from tmate.models import *
 from tmate.forms import *
+from tmate.s3 import s3_upload
+
+import time
 
 def index(request):
     profiles = Profile.objects.all()
@@ -33,7 +36,7 @@ def register(request):
         return render(request, 'tmate/register.html', context)
 
     # POST: check if valid
-    form = ProfileForm(request.POST)
+    form = ProfileForm(request.POST, request.FILES)
     context['form'] = form
 
     if not form.is_valid():
@@ -53,7 +56,16 @@ def register(request):
     ## new profile
     new_profile = Profile(user = new_user)
     new_profile.save()
+    if form.cleaned_data['image']:
+        url = s3_upload(form.cleaned_data['image'],
+                const.PROFILE_IMAGE_PREFIX + str(new_profile.id) + str(int(time.time())) )
+        new_profile.picture_url = url
+        print 'url: ' + url
+    else:
+        print 'image is empty'
+    new_profile.save()
 
+    ## confirm email
     token = default_token_generator.make_token(new_user)
 
     email_body = """
