@@ -1,0 +1,10 @@
+config.ini
+*.pyc
+tags
+*.swp
+*.swo
+.Rhistory
+staticfiles/
+log
+server_settings.py
+local_settings.py

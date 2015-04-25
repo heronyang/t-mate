@@ -8,6 +8,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
+import ConfigParser
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -26,6 +28,12 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Login Related
+# Used by the authentication system for the private-todo-list application.
+# URL to use if the authentication system requires a user to log in.
+LOGIN_URL = '/login'
+# Default URL to redirect to after a user logs in.
+LOGIN_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -36,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tmate',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,7 +77,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'US/Eastern'
 
 USE_I18N = True
 
@@ -76,8 +85,34 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
 STATIC_URL = '/static/'
+STATICFILES_DIRS = ('tmate/static', )
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+    },
+}
+
+
+config = ConfigParser.ConfigParser()
+config.read(BASE_DIR + '/config.ini')
+
+### Email ###
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = config.get('Gmail', 'User')
+EMAIL_HOST_PASSWORD = config.get('Gmail', 'Password')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
