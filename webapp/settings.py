@@ -89,7 +89,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ('tmate/static/tmate/', )
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATIC_ROOT = 'staticfiles'
 
 LOGGING = {
     'version': 1,
@@ -136,8 +136,6 @@ if 'DATABASE_URL' in os.environ:
     AWS_ACCESS_KEY = os.environ['S3_AccessKey']
     AWS_SECRET_ACCESS_KEY = os.environ['S3_SecretKey']
     S3_BUCKET = os.environ['S3_Bucket']
-
-    STATIC_ROOT = 'staticfiles'
 
     # Parse database configuration from $DATABASE_URL
     # Enable Connection Pooling
