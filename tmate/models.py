@@ -41,12 +41,14 @@ class Profile(models.Model):
     username    = property(_get_username)
     email       = property(_get_email)
 
-    resume_url  = models.CharField(blank=True, max_length=const.URL_LENGTH)
-    portfolio   = models.CharField(blank=True, max_length=const.URL_LENGTH)
-    github_url  = models.CharField(blank=True, max_length=const.URL_LENGTH)
+    location    = models.CharField(blank=True, max_length=const.SHORT_TEXT_LENGTH)
+
+    resume_url  = models.URLField(blank=True, max_length=const.URL_LENGTH)
+    portfolio   = models.URLField(blank=True, max_length=const.URL_LENGTH)
+    github_url  = models.URLField(blank=True, max_length=const.URL_LENGTH)
 
     position    = models.CharField(blank=True, max_length=const.SHORT_TEXT_LENGTH)
-    skill       = models.ManyToManyField(HashTag, related_name='hashtag')
+    skills      = models.ManyToManyField(HashTag, related_name='hashtag')
 
     def get_picture_url(self):
         if not self.picture_url:

@@ -1,0 +1,377 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	background: #fff;
+	font-size: 1em;
+	color: #333;
+	font-family: 'Raleway', sans-serif;
+}
+
+.clear {
+	clear: both;
+}
+
+nav {
+	background: #fff;
+}
+
+#logo {
+	width: 15%;
+	float: left;
+	padding: 1em;
+}
+
+#logo img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.navigation {
+	display: inline-block;
+	float: right;
+	text-transform: uppercase;
+	padding: 1em;
+}
+
+.navigation li {
+	display: inline-block;
+	padding-right: 1em;
+}
+
+.navigation li a {
+	display:block;
+	text-decoration: none;
+	color: #928887;
+	font-size: 0.9em;
+	font-weight: 500;
+}
+
+.navigation li a:hover {
+	color: #333;
+}
+
+#get_started {
+	border: 1.5px solid #928887;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	padding: 10px 20px;
+	background: #fff;
+}
+
+.navigation li a:hover #get_started {
+	border: 1.5px solid #333;
+}
+
+.big_title {
+   position: relative;
+   width: 100%;
+   height: auto;
+}
+
+#big_img {
+    width: 100%;
+    height: auto;
+}
+
+.text_area {
+    position: absolute;
+    top: 250px;
+    width: 100%;
+}
+
+.text_area_width {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.text_area h2 {
+   width: 100%;
+   color: #333;
+   text-align: center;
+   font-size: 3em;
+   font-weight: 500;
+   font-family: 'Flamenco', cursive;
+}
+
+.text_area h5 {
+    padding-top: 30px;
+    width: 100%;
+    margin: 0 auto;
+    color: #666;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.search_middle {
+    top: 500px;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#searchbar{
+    
+}
+#tfnewsearch{
+   text-align: center;
+}
+.tftextinput2{
+    margin: 0;
+    padding: 20px 20px;
+    font-size:1.4em;
+    color:#666;
+    border:2px solid #333; 
+    font-weight: 300;
+    width: 500px;
+}
+.tfbutton2 {
+    margin: 0;
+    padding: 20px 20px;
+    font-size:1.4em;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background: #333;
+    border:2px solid #333; 
+
+}
+
+.icon_img {
+    width:200px;
+    height: auto;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.design_program {
+    padding-top: 100px;
+}
+
+.icon {
+    display: inline-block;
+    text-align: center;
+    width: 45%;
+    margin-top: 80px;
+}
+
+.icon:first-child{
+    margin-right: 20%;
+}
+
+.job_title {
+    padding-top: 20px;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+#and {
+    width: 9%;
+    display: inline-block;
+    text-align: center;
+    font-size: 3em;
+}
+
+/* Fixes submit button height problem in Firefox */
+.tfbutton2::-moz-focus-inner {
+  border: 0;
+}
+.tfclear{
+    clear:both;
+}
+
+.show_designer {
+    display: inline-block;
+}
+
+.show_one_designer {
+    margin-bottom: 1.875em;
+    margin-right: 2%;
+    margin-left: 4%;
+    border: 1px solid rgba(225,225,225, .7);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 45%;
+    float: left;
+}
+
+.show_one_designer:nth-child(2) {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+.show_des {
+    font-size: 0.9em;
+    text-align: center;
+    line-height: 1.6em;   
+    width: 100%;
+    display: block;
+    padding-top: 1.5em;
+}
+
+.show_people {
+    background: #fff;
+    padding: 0 0.5em 1em 0.5em;
+}
+
+.show_other {
+    background: #eee;
+    padding: 1em 0.5em;
+
+}
+
+.show_des h5 {
+    font-weight: 500;
+    font-size: 1.1em;
+    margin-bottom: 1em;
+}
+
+.position a {
+    text-decoration: none; 
+}
+
+.position_tag {
+    background: #aaa;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px 10px 5px 0;
+    display: inline-block;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+}
+
+.skill_tag {
+    background: #ffb8b3;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 5px 10px 5px 0;
+    color: #333;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+}
+
+.skill_tag a {
+    text-decoration: none; 
+    color: #333;
+}
+
+.people_profile {
+   width: 100%;
+}
+
+.half {
+    width: 49.5%;
+    display: inline-block;
+}
+
+footer {
+    margin-top: 80px;
+    padding: 50px 0;
+    background: #eee;
+}
+
+footer p {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.icon_social {
+    text-align: center;
+
+}
+
+.form-container .text_area_width {
+
+    padding-top: 30px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 400;
+
+}
+
+.form-container .center_form {
+    text-align: left;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 40px;
+    border-radius: 10px;
+    background: #CCC;
+    padding: 20px; 
+}
+
+.form-container .center_form tr th,
+.form-container .center_form tr td {
+    padding: 10px;
+}
+
+.form-container .center_form tr td input {
+    width: 100%;
+    line-height: 2em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    border-radius: 0.5em;
+    font-size: 1em;
+}
+
+.form-container .bottom_buttons {
+    width: 100%;
+    text-align: center;
+}
+
+.form-container .bottom_buttons * {
+    margin: 1em;
+}
+
+
+@media screen and (max-width: 500px) {
+	
+	body {
+		font-size: 1em;
+	}
+	
+	nav #logo {
+		display: block;
+		width: 25%;
+		margin: 0 auto;
+		padding-bottom: 1em;
+		
+	}
+	
+	nav ul {
+		display: block;
+		width: 100%;
+		padding-left: 0;
+		padding-bottom: 1em;
+	}
+	
+	nav ul li {
+		display: block;
+		padding-right: 0;
+	}
+	
+	nav ul li a {
+		margin-bottom: 1px;
+		text-align: center;
+	}
+	
+	nav ul li:last-child a {
+		margin-bottom: 0;
+	}
+	
+}

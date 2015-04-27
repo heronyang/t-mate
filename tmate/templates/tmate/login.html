@@ -9,7 +9,27 @@
 {% endblock %}
 
 {% block content %}
-<h1>This is Login Page</h1>
+<div class="form-container">
+
+  <div class="text_area_width">
+    <h2>Login</h2>
+  </div>
+
+  <div class="center_form">
+    <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+      <table>
+        {{form.as_table}}
+        {% csrf_token %}
+      </table>
+      <div class="bottom_buttons">
+        <a href="{% url 'index' %}" class="ui button">Back</a>
+        <a href="{% url 'register' %}" class="ui button">Register</a>
+        <button class="ui submit primary button" type="submit">Login</button>
+      </div>
+      {% csrf_token %}
+    </form>
+  </div>
+</div>
 {% endblock %}
 
 {% block js %}

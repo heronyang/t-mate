@@ -2,9 +2,17 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8"/>
-    <title>{% block title %}T-Mate{% endblock %}</title>
+    <title>{% block title %}TMate{% endblock %}</title>
 
     {% load static %}
+
+    <link href="{% static 'css/reset.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'css/modal/modal.css' %}" type="text/css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href='http://fonts.googleapis.com/css?family=Flamenco:300,400' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900' rel='stylesheet' type='text/css'/>
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
 
     <!--<link rel="icon" href="{{STATIC_URL}}images/favicon.ico" type="image/x-icon" />-->
     <meta name="description" content="Meet Designers and Programmers"/>
@@ -12,10 +20,6 @@
     <meta name="mobile-web-app-capable" content="yes"/>
 
     {% block meta %}{% endblock %}
-
-    <!-- custom css -->
-    <link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/main.css"/>
-
     {% block static %}
     {% endblock %}
 
@@ -30,6 +34,7 @@
 
     <!-- JS -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
 
     {% block js %}
     {% endblock %}

@@ -20,8 +20,14 @@ from tmate.s3 import s3_upload
 import time
 
 def index(request):
+    is_login = False
+    if request.user and request.user.is_authenticated():
+        is_login = True
+
+    print 'is_login ', is_login
+
     profiles = Profile.objects.all()
-    context = {'profiles': profiles, }
+    context = {'profiles': profiles, 'is_login': is_login}
     return render(request, 'tmate/index.html', context)
 
 @transaction.atomic
@@ -54,8 +60,9 @@ def register(request):
     new_user.save()
 
     ## new profile
-    new_profile = Profile(user = new_user)
-    new_profile.save()
+    new_profile = form.instance
+    new_profile.user = new_user
+
     if form.cleaned_data['image']:
         url = s3_upload(form.cleaned_data['image'],
                 const.PROFILE_IMAGE_PREFIX + str(new_profile.id) + str(int(time.time())) )
@@ -63,7 +70,8 @@ def register(request):
         print 'url: ' + url
     else:
         print 'image is empty'
-    new_profile.save()
+
+    form.save()
 
     ## confirm email
     token = default_token_generator.make_token(new_user)

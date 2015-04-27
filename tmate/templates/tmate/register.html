@@ -9,15 +9,30 @@
 {% endblock %}
 
 {% block content %}
-<form method="POST" enctype="multipart/form-data">
-<table>
-{{form.as_table}}
-{% csrf_token %}
-</table>
-<button type="submit">Submit</button>
-</form>
 
-<a href="{% url 'index' %}">Home</a>
+<div class="form-container">
+
+  <div class="text_area_width">
+    <h2>Register</h2>
+  </div>
+
+  <div class="center_form">
+
+    <form method="POST" enctype="multipart/form-data">
+      <table>
+        {{form.as_table}}
+        {% csrf_token %}
+      </table>
+      <div class="bottom_buttons">
+        <a href="{% url 'index' %}">Home</a>
+        <input type="submit" value="Submit"/>
+      </div>
+    </form>
+
+  </div>
+
+</div>
+
 
 {% endblock %}
 

@@ -7,7 +7,7 @@ urlpatterns = patterns('',
     url(r'^$', index, name='index'),
 
     # authendication related
-    url(r'^login$', 'django.contrib.auth.views.login', {'template_name': 'tmate/login.html'}),
+    url(r'^login$', 'django.contrib.auth.views.login', {'template_name': 'tmate/login.html'}, name='login'),
     url(r'^logout$', 'django.contrib.auth.views.logout_then_login', name='logout'),
     url(r'^register$', register, name='register'),
 
