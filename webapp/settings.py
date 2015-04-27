@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 import ConfigParser
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -106,19 +107,49 @@ LOGGING = {
     },
 }
 
+### Server Setting (Heroku) ###
+if 'DATABASE_URL' in os.environ:
 
-config = ConfigParser.ConfigParser()
-config.read(BASE_DIR + '/config.ini')
+    DEBUG = False
+
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    # Allow all host headers
+    ALLOWED_HOSTS = ['*']
+
+### Database ###
+    # Deployed Settings
+    DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'])}
 
 ### Email ###
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = config.get('Gmail', 'User')
-EMAIL_HOST_PASSWORD = config.get('Gmail', 'Password')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ['GMAIL_USER']
+    EMAIL_HOST_PASSWORD = os.environ['GMAIL_PASSWORD']
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+
+### Static Storage ###
+    # S3
+    AWS_ACCESS_KEY = os.environ['S3_AccessKey']
+    AWS_SECRET_ACCESS_KEY = os.environ['S3_SecretKey']
+    S3_BUCKET = os.environ['S3_Bucket']
+
+else:
+
+    config = ConfigParser.ConfigParser()
+    config.read(BASE_DIR + '/config.ini')
+
+### Email ###
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = config.get('Gmail', 'User')
+    EMAIL_HOST_PASSWORD = config.get('Gmail', 'Password')
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
 
 # S3
 ### Static Storage ###
-AWS_ACCESS_KEY = config.get('S3', 'AccessKey')
-AWS_SECRET_ACCESS_KEY = config.get('S3', 'SecretKey')
-S3_BUCKET = config.get('S3', 'Bucket')
+    AWS_ACCESS_KEY = config.get('S3', 'AccessKey')
+    AWS_SECRET_ACCESS_KEY = config.get('S3', 'SecretKey')
+    S3_BUCKET = config.get('S3', 'Bucket')
+
