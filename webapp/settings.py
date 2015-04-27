@@ -118,6 +118,8 @@ if 'DATABASE_URL' in os.environ:
     # Allow all host headers
     ALLOWED_HOSTS = ['*']
 
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 ### Database ###
     # Deployed Settings
     DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'])}
@@ -134,6 +136,12 @@ if 'DATABASE_URL' in os.environ:
     AWS_ACCESS_KEY = os.environ['S3_AccessKey']
     AWS_SECRET_ACCESS_KEY = os.environ['S3_SecretKey']
     S3_BUCKET = os.environ['S3_Bucket']
+
+    STATIC_ROOT = 'staticfiles'
+
+    # Parse database configuration from $DATABASE_URL
+    # Enable Connection Pooling
+    DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 else:
 

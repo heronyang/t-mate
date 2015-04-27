@@ -1,1 +1,9 @@
-django-extensions==1.5.2
+boto==2.36.0
+dj-database-url==0.3.0
+dj-static==0.0.6
+Django==1.7.5
+django-markup-deprecated==0.0.3
+django-timezone-field==1.0
+gunicorn==19.1.1
+django-postgrespool==0.3.0
+whitenoise==1.0.6
