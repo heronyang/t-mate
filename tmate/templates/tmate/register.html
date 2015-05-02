@@ -122,6 +122,18 @@
             {{form.location}}
           </td>
         </tr>
+        {% if is_to_find %}
+        <tr>
+          <th>
+            {{ form.website.errors }}
+            <img class="register_icon" src="{% static 'img/position-01.png' %}"/>
+            {{form.website.label}}
+          </th>
+          <td>
+            {{form.website}}
+          </td>
+        </tr>
+        {% else %}
         <tr>
           <th>
             {{ form.position.errors }}
@@ -142,7 +154,6 @@
             {{form.resume_url}}
           </td>
         </tr>
-        {% if not is_to_find %}
         <tr>
           <th>
             {{ form.portfolio.errors }}

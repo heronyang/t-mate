@@ -46,7 +46,7 @@ class Profile(models.Model):
     resume_url  = models.URLField(blank=True, max_length=const.URL_LENGTH)
     portfolio   = models.URLField(blank=True, max_length=const.URL_LENGTH)
     github_url  = models.URLField(blank=True, max_length=const.URL_LENGTH)
-    website_url = models.URLField(blank=True, max_length=const.URL_LENGTH)
+    website     = models.URLField(blank=True, max_length=const.URL_LENGTH)
 
     position    = models.CharField(blank=True, max_length=const.SHORT_TEXT_LENGTH)
     skills      = models.ManyToManyField(HashTag, related_name='hashtag')
