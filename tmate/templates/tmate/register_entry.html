@@ -1,0 +1,24 @@
+{% extends "tmate/base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<section>
+  <h1 id="intro_big">Let's get started!</h1>
+  <h2 id="intro_sub">First, tell us what you're looking for.</h2>
+  <div style="margin-right: 1%;" class="choose">
+    <img class="big_icon" src="{% static 'img/job.png' %}"/>
+    <h3 class="des_people">I need a job</h3>
+    <p class="des_detail">I am a designer/programmer</p>
+    <a href="{% url 'register' %}"><input type="submit" value="Sign Up" class="sign_up_button"/></a>
+  </div>
+  <div class="choose">
+    <img class="big_icon" src="{% static 'img/find.png' %}"/>
+    <h3 class="des_people">I have an idea</h3>
+    <p class="des_detail">I am an individual/company</p>
+    <a href="{% url 'register' %}?is_to_find=1"><input type="submit" value="Sign Up" class="sign_up_button"/></a>
+  </div>
+</section>
+
+{% endblock %}

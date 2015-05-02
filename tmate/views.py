@@ -2,6 +2,7 @@ from django.views.decorators.csrf import requires_csrf_token
 
 # Django transaction system so we can use @transaction.atomic
 from django.db import transaction
+from django.db.models import Q
 
 # Used to generate a one-time-use token to verify a user's email address
 from django.contrib.auth.tokens import default_token_generator
@@ -24,9 +25,29 @@ def index(request):
     if request.user and request.user.is_authenticated():
         is_login = True
 
-    print 'is_login ', is_login
-
     profiles = Profile.objects.all()
+    context = {'profiles': profiles, 'is_login': is_login}
+    return render(request, 'tmate/index.html', context)
+
+def register_entry(request):
+    context = {}
+    return render(request, 'tmate/register_entry.html', context)
+
+def search(request):
+
+    q = ""
+    if 'q' in request.GET:
+        q = request.GET['q']
+
+    print "--" + q + "---"
+
+    is_login = False
+    if request.user and request.user.is_authenticated():
+        is_login = True
+
+    profiles = Profile.objects.filter( Q(user__last_name__contains=q)|
+            Q(user__first_name__contains=q)
+            )
     context = {'profiles': profiles, 'is_login': is_login}
     return render(request, 'tmate/index.html', context)
 
@@ -35,6 +56,14 @@ def index(request):
 def register(request):
 
     context = {}
+
+    context['is_to_find'] = False
+    if 'is_to_find' in request.GET:
+        print 'is to find is', request.GET['is_to_find']
+        if request.GET['is_to_find'] == "1":
+            context['is_to_find'] = True
+        else:
+            context['is_to_find'] = False
 
     # GET: first time load
     if request.method == 'GET':
@@ -104,5 +133,4 @@ def confirm_registration(request, username, token):
     user.is_active = True
     user.save()
     return render(request, 'tmate/confirmed.html', {})
-
 

@@ -22,7 +22,7 @@
       <li><a href="{% url 'logout' %}">LOG OUT</a></li>
       {% endif %}
 
-      <li><a id="get_started" href="{% url 'register' %}">GET STARTED</a></li>
+      <li><a id="get_started" href="{% url 'register_entry' %}">GET STARTED</a></li>
     </ul>
     <div class="clear"></div>
   </nav>
@@ -30,6 +30,7 @@
 
 <section>
   <div class="big_title">
+    {% if not is_login %}
     <img id="big_img" src="{% static 'img/tmate.png' %}" alt=""/>
     <div class="text_area">
       <div class="text_area_width">
@@ -39,13 +40,19 @@
     </div>
     <div class="search_middle">
       <div id="searchbar">
-        <form id="tfnewsearch" method="get" action="http://www.google.com">
-          <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" value="Designers? Programmers? Skills?"><input type="submit" value="Search" class="tfbutton2">
+          <form id="tfnewsearch" method="get" action="{% url 'search' %}">
+              <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
+              <input type="submit" value="Search" class="tfbutton2"/>
           </form>
           <div class="tfclear"></div>
-        </div>
       </div>
     </div>
+    {% else %}
+    <form id="tfnewsearch" method="get" action="{% url 'search' %}">
+        <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
+        <input type="submit" value="Search" class="tfbutton2"/>
+    </form>
+    {% endif %}
     <div class="design_program">
       <h5 class="subtitle">Who are in TMate?</h5>
       <div class="icon">

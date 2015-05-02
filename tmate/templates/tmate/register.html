@@ -10,27 +10,176 @@
 
 {% block content %}
 
-<div class="form-container">
+{% load static %}
+
+<div class="register-container">
+
+  <div id="back">
+      <a href="{% url 'index' %}"><i class="fa fa-arrow-left fa-2x"></i></a>
+  </div>
 
   <div class="text_area_width">
-    <h2>Register</h2>
+    <h1 id="intro_big">Create Your Account</h1>
   </div>
 
   <div class="center_form">
-
     <form method="POST" enctype="multipart/form-data">
+      {{ form.non_field_errors }}
       <table>
-        {{form.as_table}}
-        {% csrf_token %}
+        <tr>
+          <th>
+            {{ form.user_type.errors }}
+            <img class="register_icon" src="{% static 'img/type-01.png' %}"/>
+            {{ form.user_type.help_text }}
+          </th>
+          <td>
+
+            {% if is_to_find %}
+            <select id="id_user_type" name="user_type">
+              <option value="2" selected="selected">individual hunter</option>
+              <option value="3">company hunter</option>
+            </select>
+
+            {% else %}
+            <select id="id_user_type" name="user_type">
+              <option value="0" selected="selected">programmer</option>
+              <option value="1">designer</option>
+            </select>
+            {% endif %}
+
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.first_name.errors }}
+            <img class="register_icon" src="{% static 'img/user-01.png' %}"/>
+            {{ form.first_name.label }}
+          </th>
+          <td>
+            {{ form.first_name }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.last_name.errors }}
+            <img class="register_icon" src="{% static 'img/user-01.png' %}"/>
+            {{ form.last_name.label }}
+          </th>
+          <td>
+            {{ form.last_name }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.username.errors }}
+            <img class="register_icon" src="{% static 'img/user-01.png' %}"/>
+            {{form.username.label}}
+          <td>
+            {{form.username}}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.email.errors }}
+            <img class="register_icon" src="{% static 'img/email-01.png' %}"/>
+            {{form.email.label}}
+          </th>
+          <td>
+            {{form.email}}
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            {{ form.password1.errors }}
+            <img class="register_icon" src="{% static 'img/password-01.png' %}"/>
+            {{form.password1.label}}
+          </th>
+          <td>
+            {{form.password1}}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.password2.errors }}
+            <img class="register_icon" src="{% static 'img/password-01.png' %}"/>
+            {{form.password2.label}}
+          </th>
+          <td>
+            {{form.password2}}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.location.errors }}
+            <img class="register_icon" src="{% static 'img/location-01.png' %}"/>
+            {{form.location.label}}
+          </th>
+          <td>
+            {{form.location}}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.position.errors }}
+            <img class="register_icon" src="{% static 'img/position-01.png' %}"/>
+            {{form.position.label}}
+          </th>
+          <td>
+            {{form.position}}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.resume_url.errors }}
+            <img class="register_icon" src="{% static 'img/resume-01.png' %}"/>
+            {{form.resume_url.label}}
+          </th>
+          <td>
+            {{form.resume_url}}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.portfolio.errors }}
+            <img class="register_icon" src="{% static 'img/link-01.png' %}"/>
+            {{form.portfolio.label}}
+          </th>
+          <td>
+            {{form.portfolio}}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.skills.errors }}
+            <img class="register_icon" src="{% static 'img/skill-01.png' %}"/>
+            {{form.skills.label}}
+          </th>
+          <td>
+            {{form.skills}}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.image.errors }}
+            <img class="register_icon" src="{% static 'img/profile-01.png' %}"/>
+            {{form.image.label}}
+          </th>
+          <td>
+            {{form.image}}
+          </td>
+        </tr>
+
+
+        <input type='hidden' name='csrfmiddlewaretoken' value='ERu25O8v95Kjqm2RR4YMOCD7XvPsphwb' />
       </table>
       <div class="bottom_buttons">
         <a href="{% url 'index' %}">Home</a>
-        <input type="submit" value="Submit"/>
+        <input class="sign_up_button" type="submit" value="Submit"/>
       </div>
+      {% csrf_token %}
     </form>
-
   </div>
-
 </div>
 
 

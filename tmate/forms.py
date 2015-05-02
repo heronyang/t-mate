@@ -14,7 +14,7 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         exclude = ('user', 'picture_url', )
         labels = {}
-        help_texts = {}
+        help_texts = {'user_type': 'User Type',}
 
     image      = forms.FileField(required=False)
 
