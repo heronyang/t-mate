@@ -30,7 +30,7 @@ class ProfileForm(forms.ModelForm):
                                  label='Password',
                                  widget = forms.PasswordInput())
     password2  = forms.CharField(max_length = 200,
-                                 label='Confirm password',
+                                 label='Again',
                                  widget = forms.PasswordInput())
 
     def clean(self):

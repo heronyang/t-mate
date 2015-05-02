@@ -35,16 +35,19 @@
           <td>
 
             {% if is_to_find %}
+
             <select id="id_user_type" name="user_type">
               <option value="2" selected="selected">individual hunter</option>
               <option value="3">company hunter</option>
             </select>
 
             {% else %}
+
             <select id="id_user_type" name="user_type">
               <option value="0" selected="selected">programmer</option>
               <option value="1">designer</option>
             </select>
+
             {% endif %}
 
           </td>
@@ -139,16 +142,18 @@
             {{form.resume_url}}
           </td>
         </tr>
+        {% if not is_to_find %}
         <tr>
           <th>
             {{ form.portfolio.errors }}
             <img class="register_icon" src="{% static 'img/link-01.png' %}"/>
-            {{form.portfolio.label}}
+            {{ form.portfolio.label }}
           </th>
           <td>
             {{form.portfolio}}
           </td>
         </tr>
+        {% endif %}
         <tr>
           <th>
             {{ form.skills.errors }}
@@ -186,4 +191,7 @@
 {% endblock %}
 
 {% block js %}
+<script>
+  $('#id_first_name').focus();
+</script>
 {% endblock %}
