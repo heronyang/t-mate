@@ -15,11 +15,11 @@
 <div class="register-container">
 
   <div id="back">
-      <a href="{% url 'index' %}"><i class="fa fa-arrow-left fa-2x"></i></a>
+      <a href="javascript:history.back()"><i class="fa fa-arrow-left fa-2x"></i></a>
   </div>
 
   <div class="text_area_width">
-    <h1 id="intro_big">Create Your Account</h1>
+    <h1 id="intro_big" class="upper">Create Your Account</h1>
   </div>
 
   <div class="center_form">
@@ -102,7 +102,8 @@
             {{form.password1}}
           </td>
         </tr>
-        <tr>
+
+        <tr class="button_line">
           <th>
             {{ form.password2.errors }}
             <img class="register_icon" src="{% static 'img/password-01.png' %}"/>
@@ -112,7 +113,15 @@
             {{form.password2}}
           </td>
         </tr>
-        <tr>
+        <tr class="first_part">
+          <th>
+          </th>
+          <td>
+            <h2>Tell More About You</h2>
+          </td>
+        </tr>
+
+        <tr class="first_part">
           <th>
             {{ form.location.errors }}
             <img class="register_icon" src="{% static 'img/location-01.png' %}"/>
@@ -164,7 +173,6 @@
             {{form.portfolio}}
           </td>
         </tr>
-        {% endif %}
         <tr>
           <th>
             {{ form.skills.errors }}
@@ -175,6 +183,7 @@
             {{form.skills}}
           </td>
         </tr>
+        {% endif %}
         <tr>
           <th>
             {{ form.image.errors }}

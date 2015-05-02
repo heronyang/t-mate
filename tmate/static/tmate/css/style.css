@@ -343,6 +343,10 @@ footer p {
     font-family: 'Flamenco', cursive;
     font-weight: 500;
     font-size: 3em;
+    margin-top: 10%;
+}
+
+#intro_big.upper {
     margin-top: 3%;
 }
 
@@ -407,14 +411,27 @@ footer p {
     margin: 0 auto;
     margin-top: 40px;
     border-radius: 10px;
-   
-    padding: 20px; 
+    padding: 20px;
 }
 
 .register-container .center_form tr th,
 .register-container .center_form tr td {
     padding: 10px;
 }
+
+.register-container .center_form tr.button_line td {
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+}
+
+.register-container .center_form tr.button_line {
+    border-bottom: 1px solid #ccc;
+}
+
+.register-container .center_form tr.first_part td {
+    padding-top: 2em;
+}
+
 
 .register-container .center_form tr td input {
     width: 100%;
@@ -450,8 +467,6 @@ label {
 #back a {
     color: rgb(51, 51, 51);
 }
-
-
 
 @media screen and (max-width: 500px) {
 	
