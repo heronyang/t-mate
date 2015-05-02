@@ -8,3 +8,4 @@ staticfiles/
 log
 server_settings.py
 local_settings.py
+db.sqlite3
