@@ -111,15 +111,15 @@ nav {
 }
 
 .search_middle {
-    top: 500px;
+    top: 70%;
     position: absolute;
     width: 100%;
     margin: 0 auto;
 }
 
 #searchbar{
-    
 }
+
 #tfnewsearch{
    text-align: center;
 }
@@ -128,12 +128,14 @@ nav {
     padding: 20px 20px;
     font-size:1.4em;
     color:#666;
-    border:2px solid #333; 
+    border:2px solid #333;
     font-weight: 300;
-    width: 500px;
+    width: 40%;
+    border-radius: 5px 0px 0px 5px;
 }
 .tfbutton2 {
     margin: 0;
+    margin-left: -4px;
     padding: 20px 20px;
     font-size:1.4em;
     outline: none;
@@ -142,8 +144,8 @@ nav {
     text-decoration: none;
     color: #ffffff;
     background: #333;
-    border:2px solid #333; 
-
+    border:2px solid #333;
+    border-radius: 0px 5px 5px 0px;
 }
 
 .icon_img {
@@ -478,6 +480,11 @@ label {
         top: 30%;
     }
 
+    #tfnewsearch * {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -485,7 +492,6 @@ label {
     html {
         font-size: 13px;
     }
-
 
     .text_area {
         top: 120px;
