@@ -35,7 +35,8 @@
     <div class="text_area">
       <div class="text_area_width">
         <h2>Meet Designers and Programmers</h2>
-        <h5>Programmers, designers and ideas meet together. Get works done.</h5>
+        <h5>Programmers, designers and ideas meet together.<span class="only_mobile"><br /></span>
+        Get works done.</h5>
       </div>
     </div>
     <div class="search_middle">
@@ -53,6 +54,8 @@
         <input type="submit" value="Search" class="tfbutton2"/>
     </form>
     {% endif %}
+  </div>
+  <div>
     <div class="design_program">
       <h5 class="subtitle">Who are in TMate?</h5>
       <div class="icon">
@@ -68,12 +71,13 @@
       </div>
     </div>
     <div class="showcase">
+
       <div class="half">
 
         <ul class="show_designer">
 
           <!-- per designer here -->
-          {% for profile in profiles %}
+          {% for profile in profiles_designers %}
           <li class="show_one_designer">
             <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
               <a href="{{profile.picture_url}}" target="_blank">
@@ -116,6 +120,47 @@
       </div>
       <div class="half" style="border-left: 3px solid #eee">
         <ul class="show_designer">
+
+          <!-- per designer here -->
+          {% for profile in profiles_programmers %}
+          <li class="show_one_designer">
+            <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
+              <a href="{{profile.picture_url}}" target="_blank">
+                <img class="people_profile" src="{{profile.picture_url}}"/>
+              </a>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="show_des">
+              <div class="show_people">
+                <h5>{{profile.print_name}}</h5>
+                <div class="position">
+                  <p class="position_tag">Web Designer</p>
+                </div>
+              </div>
+              <div class="show_other">
+
+                <div class="skill">
+                  {% for ht in profile.skills.all %}
+                  <p class="skill_tag"><a href="">{{ht.content}}</a></p>
+                  {% endfor %}
+                </div>
+
+                <p class="location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> {{profile.location}}</p>
+                <p class="location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i>
+
+                  {% if is_login %}
+                  <a href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
+                  {% endif %}
+
+                </p>
+
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+
         </ul>
       </div>
     </div>

@@ -25,8 +25,13 @@ def index(request):
     if request.user and request.user.is_authenticated():
         is_login = True
 
-    profiles = Profile.objects.all()
-    context = {'profiles': profiles, 'is_login': is_login}
+    profiles_programmers = Profile.objects.filter(user_type=0)
+    profiles_designers = Profile.objects.filter(user_type=1)
+    context = {
+            'profiles_programmers': profiles_programmers,
+            'profiles_designers': profiles_designers,
+            'is_login': is_login
+            }
     return render(request, 'tmate/index.html', context)
 
 def register_entry(request):
