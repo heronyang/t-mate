@@ -31,48 +31,42 @@
 <section>
   <div class="big_title">
     {% if not is_login %}
-    <img id="big_img" src="{% static 'img/tmate.png' %}" alt=""/>
+    <img id="big_img" src="{% static 'img/tmate.jpg' %}" alt=""/>
     <div class="text_area">
       <div class="text_area_width">
         <h2>Meet Designers and Programmers</h2>
         <h5>Programmers, designers and ideas meet together.<span class="only_mobile"><br /></span>
-        Get works done.</h5>
+          Get works done.</h5>
       </div>
     </div>
     <div class="search_middle">
       <div id="searchbar">
-          <form id="tfnewsearch" method="get" action="{% url 'search' %}">
-              <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
-              <input type="submit" value="Search" class="tfbutton2"/>
-          </form>
-          <div class="tfclear"></div>
+        <form id="tfnewsearch" method="get" action="{% url 'search' %}">
+          <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
+          <input type="submit" value="Search" class="tfbutton2"/>
+        </form>
+        <div class="tfclear"></div>
       </div>
     </div>
     {% else %}
     <form id="tfnewsearch" method="get" action="{% url 'search' %}">
-        <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
-        <input type="submit" value="Search" class="tfbutton2"/>
+      <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
+      <input type="submit" value="Search" class="tfbutton2"/>
     </form>
     {% endif %}
   </div>
-  <div>
+  <div class="container">
     <div class="design_program">
       <h5 class="subtitle">Who are in TMate?</h5>
-      <div class="icon">
-        <img class="icon_img" src="{% static 'img/icon.png' %}"/>
-        <p class="job_title">Designers</p>
-      </div>
-      <div id="and">
-        <p>&</p>
-      </div>
-      <div class="icon">
-        <img class="icon_img" src="{% static 'img/icon2.png' %}"/>
-        <p class="job_title">Programmers</p>
-      </div>
     </div>
     <div class="showcase">
 
       <div class="half">
+
+        <div class="icon">
+          <img class="icon_img" src="{% static 'img/icon.png' %}"/>
+          <p class="job_title">Designers</p>
+        </div>
 
         <ul class="show_designer">
 
@@ -81,7 +75,9 @@
           <li class="show_one_designer">
             <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
               <a href="{{profile.picture_url}}" target="_blank">
-                <img class="people_profile" src="{{profile.picture_url}}"/>
+                <div class="people_profile_container">
+                  <img class="people_profile" src="{{profile.picture_url}}"/>
+                </div>
               </a>
             </div>
 
@@ -119,6 +115,10 @@
         </ul>
       </div>
       <div class="half" style="border-left: 3px solid #eee">
+        <div class="icon">
+          <img class="icon_img" src="{% static 'img/icon2.png' %}"/>
+          <p class="job_title">Programmers</p>
+        </div>
         <ul class="show_designer">
 
           <!-- per designer here -->
@@ -126,7 +126,9 @@
           <li class="show_one_designer">
             <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
               <a href="{{profile.picture_url}}" target="_blank">
-                <img class="people_profile" src="{{profile.picture_url}}"/>
+                <div class="people_profile_container">
+                  <img class="people_profile" src="{{profile.picture_url}}"/>
+                </div>
               </a>
             </div>
 
@@ -164,14 +166,18 @@
         </ul>
       </div>
     </div>
-</div>
+  </div>
 
 </section>
+
+<div class="clear"></div>
 
 <footer>
 
   <div class="icon_social">
+    <i class="fa fa-twitter-square fa-2x"></i>
     <i class="fa fa-facebook-square fa-2x"></i>
+    <i class="fa fa-envelope-square fa-2x"></i>
   </div>
   <p>©2015 TMate. All rights reserved.</p>
 </footer>

@@ -149,13 +149,18 @@ nav {
 }
 
 .icon_img {
-    width:200px;
-    height: auto;
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .subtitle {
     text-align: center;
     font-size: 1.5em;
+    margin-bottom: 2em;
 }
 
 .design_program {
@@ -163,14 +168,13 @@ nav {
 }
 
 .icon {
-    display: inline-block;
     text-align: center;
-    width: 45%;
-    margin-top: 80px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 80px;
 }
 
 .icon:first-child{
-    margin-right: 20%;
 }
 
 .job_title {
@@ -195,24 +199,35 @@ nav {
 }
 
 .show_designer {
-    display: inline-block;
+    float:left;
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 .show_one_designer {
     margin-bottom: 1.875em;
     margin-right: 2%;
-    margin-left: 4%;
+    margin-left: 2%;
+    box-sizing: border-box;
     border: 1px solid rgba(225,225,225, .7);
     border-radius: 10px;
     overflow: hidden;
-    width: 100%; /* ??? */
+    width: 46%;
     float: left;
 }
 
+.container {
+    width: 95%;
+    margin: auto;
+}
+
+/*
 .show_one_designer:nth-child(2) {
     margin-right: 0;
     margin-left: 0;
 }
+*/
 
 .clear {
   clear: both;
@@ -245,7 +260,7 @@ nav {
 }
 
 .position a {
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 .position_tag {
@@ -271,17 +286,19 @@ nav {
 }
 
 .skill_tag a {
-    text-decoration: none; 
+    text-decoration: none;
     color: #333;
 }
 
-.people_profile {
+.people_profile,
+.people_profile_container {
    width: 100%;
 }
 
 .half {
-    width: 49.5%;
-    display: inline-block;
+    width: 50%;
+    float:left;
+    box-sizing: border-box;
 }
 
 footer {
@@ -318,7 +335,7 @@ footer p {
     margin-top: 40px;
     border-radius: 10px;
     background: #CCC;
-    padding: 20px; 
+    padding: 20px;
 }
 
 .form-container .center_form tr th,
@@ -516,6 +533,10 @@ label {
 
     .only_mobile {
         display: block;
+    }
+
+    .show_one_designer {
+        width: 96%;
     }
 
 }
