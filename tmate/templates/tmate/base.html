@@ -14,37 +14,36 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900' rel='stylesheet' type='text/css'/>
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
 
-    <!--<link rel="icon" href="{{STATIC_URL}}images/favicon.ico" type="image/x-icon" />-->
-    <meta name="description" content="Meet Designers and Programmers"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="mobile-web-app-capable" content="yes"/>
+      <!--<link rel="icon" href="{{STATIC_URL}}images/favicon.ico" type="image/x-icon" />-->
+      <meta name="description" content="Meet Designers and Programmers"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <meta name="mobile-web-app-capable" content="yes"/>
 
-    {% block meta %}{% endblock %}
-    {% block static %}
-    {% endblock %}
+      {% block meta %}{% endblock %}
+      {% block static %}
+      {% endblock %}
 
-  </head>
-  <body>
+    </head>
+    <body>
 
       {% block nav %}
       <header>
-          <nav>
-              <a href="{% url 'index' %}" id="logo"><img src="{% static 'img/logo-m.png'%}" alt="TMate"/></a>
-              <ul class="navigation">
-                  <!-- UL STARTS ABOVE TO ELIMINATE VISUAL GAP  -->
+        <nav>
+          <a href="{% url 'index' %}" id="logo"><img src="{% static 'img/logo-m.png'%}" alt="TMate"/></a>
+          <ul class="navigation">
+            <!-- UL STARTS ABOVE TO ELIMINATE VISUAL GAP  -->
 
-                  {% if not is_login %}
-                  <li><a href="{% url 'login' %}">LOG IN</a></li>
-                  {% else %}
-                  <li><a href="{% url 'logout' %}">LOG OUT</a></li>
-                  {% endif %}
+            {% if not is_login %}
+            <li><a href="{% url 'login' %}">LOG IN</a></li>
+            {% else %}
+            <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+            {% endif %}
 
-                  <li><a id="get_started" href="{% url 'register_entry' %}">GET STARTED</a></li>
-              </ul>
-              <div class="clear"></div>
-          </nav>
+            <li><a id="get_started" href="{% url 'register_entry' %}">GET STARTED</a></li>
+          </ul>
+          <div class="clear"></div>
+        </nav>
       </header>
-
       {% endblock %}
 
       {% block content %}
@@ -56,12 +55,12 @@
 
       <footer>
 
-          <div class="icon_social">
-              <i class="fa fa-twitter-square fa-2x"></i>
-              <i class="fa fa-facebook-square fa-2x"></i>
-              <i class="fa fa-envelope-square fa-2x"></i>
-          </div>
-          <p>©2015 TMate. All rights reserved.</p>
+        <div class="icon_social">
+          <i class="fa fa-twitter-square fa-2x"></i>
+          <i class="fa fa-facebook-square fa-2x"></i>
+          <i class="fa fa-envelope-square fa-2x"></i>
+        </div>
+        <p>©2015 TMate. All rights reserved.</p>
 
       </footer>
 
@@ -74,5 +73,5 @@
       {% block js %}
       {% endblock %}
 
-  </body>
-</html>
+    </body>
+  </html>

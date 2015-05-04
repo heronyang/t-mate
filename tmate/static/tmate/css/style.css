@@ -12,7 +12,7 @@ body {
 	clear: both;
 }
 
-nav {
+header {
 	background: #fff;
 	position: fixed;
 	width: 100%;
@@ -31,8 +31,10 @@ nav {
 }
 
 #logo img {
-	height: 50px;
-	display: block;
+    width: auto;
+    height : auto;
+    max-height: 48px;
+    max-width: 48px;
 }
 
 .navigation {
@@ -479,6 +481,8 @@ footer p {
     height: 35px;
     width: auto;
     display: inline-block;
+    top: 12px;
+    position: relative;
 }
 
 .space {
@@ -731,6 +735,11 @@ label {
         width: 96%;
     }
 
+    #logo img {
+        max-height: 40px;
+        max-width: 40px;
+    }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -758,6 +767,11 @@ label {
     div.text_area_width {
         margin: 0px;
         width: 100%;
+    }
+
+    #logo img {
+        max-height: 38px;
+        max-width: 38px;
     }
 
 }
