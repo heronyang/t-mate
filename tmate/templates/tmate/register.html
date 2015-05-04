@@ -127,10 +127,9 @@
           <th>
             {{ form.website.errors }}
             <img class="register_icon" src="{% static 'img/position-01.png' %}"/>
-            {{form.website.label}}
           </th>
           <td>
-            {{form.website}}
+            <input id="id_website" maxlength="256" placeholder="Website" name="website" type="url">
           </td>
         </tr>
         {% else %}

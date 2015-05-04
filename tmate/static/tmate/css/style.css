@@ -28,6 +28,10 @@ header {
     display: none;
 }
 
+textarea {
+    font-size: 1em;
+}
+
 #logo {
 	width: 10%;
 	float: left;
@@ -338,13 +342,12 @@ footer p {
 }
 
 .form-container .center_form {
-    text-align: left;
+    text-align: center;
     width: 30%;
     margin: 0 auto;
     margin-top: 40px;
     border-radius: 10px;
     background: #CCC;
-    padding: 20px;
 }
 
 .form-container .center_form tr th,
@@ -433,14 +436,16 @@ footer p {
 }
 
 .register-container .center_form {
-    text-align: left;
+    text-align: center;
     width: 30%;
     margin: 0 auto;
     margin-top: 40px;
     border-radius: 10px;
-    padding: 20px;
 }
 
+.register-container form table {
+    margin: auto;
+}
 .register-container .center_form tr th,
 .register-container .center_form tr td {
     padding: 10px;
@@ -704,6 +709,10 @@ label {
         font-size: 1em;
     }
 
+    .register-container .center_form {
+        width: 60%;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -745,6 +754,12 @@ label {
         max-height: 40px;
         max-width: 40px;
     }
+
+    .register-container .center_form {
+        width: 100%;
+    }
+
+
 
 }
 
