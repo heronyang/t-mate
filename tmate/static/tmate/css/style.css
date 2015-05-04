@@ -12,6 +12,10 @@ body {
 	clear: both;
 }
 
+.center {
+    text-align: center;
+}
+
 header {
 	background: #fff;
 	position: fixed;
@@ -382,10 +386,6 @@ footer p {
     font-weight: 400;
     font-size: 2em;
     margin-top: 0.5em;
-}
-
-.choose {
-    margin-top: 50px;
 }
 
 .big_icon {
