@@ -9,7 +9,11 @@
 
 {% load static %}
 
-<section>
+<div id="close">
+    <a href="{% url 'index' %}"><i class="fa fa-times fa-2x"></i></a>
+</div>
+
+<div class="text_area_width">
   <h1 id="intro_big">Let's get started!</h1>
   <h2 id="intro_sub">First, tell us what you're looking for.</h2>
   <div style="margin-right: 1%;" class="choose">
@@ -24,6 +28,6 @@
     <p class="des_detail">I am an individual/company</p>
     <a href="{% url 'register' %}?is_to_find=1"><input type="submit" value="Sign Up" class="sign_up_button"/></a>
   </div>
-</section>
+</div>
 
 {% endblock %}
