@@ -7,6 +7,7 @@ from django.db.models import Q
 # Used to generate a one-time-use token to verify a user's email address
 from django.contrib.auth.tokens import default_token_generator
 from django.core.urlresolvers import reverse
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -30,9 +31,26 @@ def index(request):
     context = {
             'profiles_programmers': profiles_programmers,
             'profiles_designers': profiles_designers,
-            'is_login': is_login
+            'is_login': is_login,
             }
     return render(request, 'tmate/index.html', context)
+
+def profile(request, uid):
+    is_login = False
+    if request.user and request.user.is_authenticated():
+        is_login = True
+
+    try:
+        u = User.objects.get(id=uid)
+        profile = Profile.objects.get(user=u)
+    except ObjectDoesNotExist:
+        return render(request, 'tmate/404.html', {})
+
+    context = {
+            'profile': profile,
+            'is_login': is_login,
+            }
+    return render(request, 'tmate/profile.html', context)
 
 def register_entry(request):
     context = {}

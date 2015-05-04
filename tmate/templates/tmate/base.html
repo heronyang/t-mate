@@ -26,18 +26,53 @@
   </head>
   <body>
 
-    {% block nav %}
-    {% endblock %}
+      {% block nav %}
+      <header>
+          <nav>
+              <a href="{% url 'index' %}" id="logo"><img src="{% static 'img/logo-m.png'%}" alt="TMate"/></a>
+              <ul class="navigation">
+                  <!-- UL STARTS ABOVE TO ELIMINATE VISUAL GAP  -->
 
-    {% block content %}
-    {% endblock %}
+                  {% if not is_login %}
+                  <li><a href="{% url 'login' %}">LOG IN</a></li>
+                  {% else %}
+                  <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+                  {% endif %}
 
-    <!-- JS -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
+                  <li><a id="get_started" href="{% url 'register_entry' %}">GET STARTED</a></li>
+              </ul>
+              <div class="clear"></div>
+          </nav>
+      </header>
 
-    {% block js %}
-    {% endblock %}
+      {% endblock %}
+
+      {% block content %}
+      {% endblock %}
+
+      {% block foot %}
+
+      <div class="clear"></div>
+
+      <footer>
+
+          <div class="icon_social">
+              <i class="fa fa-twitter-square fa-2x"></i>
+              <i class="fa fa-facebook-square fa-2x"></i>
+              <i class="fa fa-envelope-square fa-2x"></i>
+          </div>
+          <p>©2015 TMate. All rights reserved.</p>
+
+      </footer>
+
+      {% endblock %}
+
+      <!-- JS -->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
+
+      {% block js %}
+      {% endblock %}
 
   </body>
 </html>

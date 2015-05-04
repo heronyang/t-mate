@@ -1,0 +1,130 @@
+{% extends "tmate/base.html" %}
+
+{% block static %}
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<section id="profile_whole">
+  <div class="one_profile">
+
+    <img class="one_profile_img" src="{{profile.picture_url}}"/>
+      <div class="one_profile_des">
+        <div class="one_profile_other">
+          <a id="link_contact" href="mailto:{{profile.email}}"><p><i class="fa fa-comment"></i> Contact</p></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="one_detail">
+      <div class="one_detail_people">
+        <h5>{{profile.print_name}}</h5>
+        <div class="position">
+          <a href="#">
+            <p class="position_tag">{{profile.position}}</p>
+          </a>
+        </div>
+      </div>
+      <div class="one_detail_skill">
+        {% for ht in profile.skills.all %}
+        <p class="skill_tag"><a href="">{{ht.content}}</a></p>
+        {% endfor %}
+      </div>
+
+      <div>
+        <div class="profile_location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> <p>{{profile.location}}</p></div>
+        <div class="profile_location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i> <p>4</p></div>
+      </div>
+      <div>
+        <div class="profile_location">
+          <img class="resume_img" src="{% static 'img/resume.png' %}"><a id="link_resume" href="{{profile.resume_url}}"><p class="resume">Resume</p></a>
+          </div>
+          <div class="profile_location">
+            <img class="link_img" src="{% static 'img/link.png' %}"><a id="link_resume" href="{{profile.portfolio}}"><p class="resume">Protfolio</p></a>
+            </div>
+          </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="profile_overview">
+          <h2 class="profile_title">Overview</h2>
+          <p class="overview_intro">
+            5000+ Working hours and counting. Portfolio can be seen here: http://asaadmahmood.com/ 
+
+            I am an expert UI/UX designer and an expert frontend developer. I create beautiful, innovative and creative designs with the utmost consideration to the User Experience. 
+
+            I am skilled in the following technologies/areas: 
+            UI Design 
+            Web Design 
+            Prototyping (Invision App and Balsamiq) 
+            Wireframe/Mockup generation (Balsamiq and Moqups) 
+            Html5/Css3 
+            Javascript/Jquery 
+            Less/Sass 
+            Compass/Bourbon 
+            Jquery Mobile 
+            Twitter Boo…    
+          </p>
+          <a href="#">More</a>
+        </div>
+
+        <div class="profile_history">
+          <h2 class="profile_title">Work History&Overview</h2>
+          <div class="profile_history_detail">
+            <div class="profile_comment">
+              <h3 class="profile_history_subtitle">iOS App Design Recommendations</h3>
+              <p>“Viktoria not only did great work but also had very valuable recommendations to provide. I really appreciate when I hire a professional, like Viktoria, and they make the project better by being involved. I couldn't be happier.”</p>
+              <p class="profile_date">April 20, 2015</p>
+            </div>
+            <div class="profile_rate">
+              <h2 class="grade">4.5</h2>
+              <div class="profile_star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="profile_history_detail">
+            <div class="profile_comment">
+              <h3 class="profile_history_subtitle">iOS App Design Recommendations</h3>
+              <p>“Viktoria not only did great work but also had very valuable recommendations to provide. I really appreciate when I hire a professional, like Viktoria, and they make the project better by being involved. I couldn't be happier.”</p>
+              <p class="profile_date">April 20, 2015</p>
+            </div>
+            <div class="profile_rate">
+              <h2 class="grade">4.5</h2>
+              <div class="profile_star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="profile_history_detail">
+            <div class="profile_comment">
+              <h3 class="profile_history_subtitle">iOS App Design Recommendations</h3>
+              <p>“Viktoria not only did great work but also had very valuable recommendations to provide. I really appreciate when I hire a professional, like Viktoria, and they make the project better by being involved. I couldn't be happier.”</p>
+              <p class="profile_date">April 20, 2015</p>
+            </div>
+            <div class="profile_rate">
+              <h2 class="grade">4.5</h2>
+              <div class="profile_star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="profile_history_detail">
+            <div class="profile_comment">
+              <h3 class="profile_history_subtitle">iOS App Design Recommendations</h3>
+              <p>“Viktoria not only did great work but also had very valuable recommendations to provide. I really appreciate when I hire a professional, like Viktoria, and they make the project better by being involved. I couldn't be happier.”</p>
+              <p class="profile_date">April 20, 2015</p>
+            </div>
+            <div class="profile_rate">
+              <h2 class="grade">4.5</h2>
+              <div class="profile_star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+
+      </section>
+
+      {% endblock %}
+
+      {% block js %}
+      {% endblock %}

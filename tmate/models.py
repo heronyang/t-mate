@@ -51,6 +51,8 @@ class Profile(models.Model):
     position    = models.CharField(blank=True, max_length=const.SHORT_TEXT_LENGTH)
     skills      = models.ManyToManyField(HashTag, related_name='hashtag')
 
+    overview    = models.TextField(blank=True)
+
     def get_picture_url(self):
         if not self.picture_url:
             return const.DEFAULT_PICTURE_URL

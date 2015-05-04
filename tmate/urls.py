@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^register$', register, name='register'),
     url(r'^register-entry$', register_entry, name='register_entry'),
 
+    url(r'^profile/(?P<uid>\d+)$', profile, name='profile'),
     url(r'^search$', search, name='search'),
 
     url(r'^confirm-registration/(?P<username>[a-zA-Z0-9_@\+\-]+)/(?P<token>[a-z0-9\-]+)$', confirm_registration, name='confirm'),

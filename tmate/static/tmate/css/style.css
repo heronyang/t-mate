@@ -12,23 +12,26 @@ body {
 	clear: both;
 }
 
+nav {
+	background: #fff;
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+	border-bottom: 2px solid #eee;
+}
+
 .only_mobile {
     display: none;
 }
 
-nav {
-	background: #fff;
-}
-
 #logo {
-	width: 15%;
+	width: 10%;
 	float: left;
-	padding: 1em;
+	padding: 9px;
 }
 
 #logo img {
-	width: 100%;
-	height: auto;
+	height: 50px;
 	display: block;
 }
 
@@ -96,7 +99,7 @@ nav {
    color: #333;
    text-align: center;
    font-size: 3em;
-   font-weight: 500;
+   font-weight: bold;
    font-family: 'Flamenco', cursive;
 }
 
@@ -478,17 +481,206 @@ footer p {
     display: inline-block;
 }
 
+.space {
+    width: 100%;
+    padding-top: 5em;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+}
+
 label {
     display: inline-block;
 }
 
 #back {
     position: fixed;
-    margin:20px; 
+    margin:20px;
 }
 
 #back a {
     color: rgb(51, 51, 51);
+}
+
+#profile_whole {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding-top: 130px;
+}
+
+.profile_left {
+    float: left;
+}
+
+#profile_contact {
+    background: #333;
+}
+
+#link_contact {
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.one_profile_img {
+    height: auto;
+    width: 100%;
+    border: 1px solid rgba(225,225,225, .7);
+    border-radius: 10px;
+}
+
+.one_profile {
+    margin-bottom: 1.875em;
+    margin-right: 5%;
+    margin-left: 5%;
+    float: left;
+    width: 25%;
+    height:auto; 
+    
+}
+
+.one_profile_des {
+    font-size: 0.9em;
+    text-align: center;
+    line-height: 1.6em;   
+    width: 100%;
+    display: block;
+    margin-top: 5px;
+   
+}
+
+.one_profile_other {
+    background: #333;
+    padding: 1em 0.5em;
+    border-radius: 10px;
+}
+
+
+.one_detail {
+    font-size: 0.9em;
+    text-align: left;
+    float: left;
+    margin-right: 5%;
+    margin-left: 5%;
+    width: 55%;
+    line-height: 1.6em;   
+    display: block;
+    padding-top: 1.5em;
+    margin-left: 50px;
+}
+
+.one_detail_people h5 {
+    font-family: 'Flamenco', cursive;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+}
+
+.one_detail_people .position {
+    margin: 10px 0;
+}
+
+.profile_location {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.profile_location p {
+    padding-left: 8px;
+    display: inline-block;
+}
+
+.profile_location i {
+    display: inline-block;
+}
+
+.resume_img {
+    vertical-align:middle;
+    width: 20px;
+    height: auto;
+    display: inline-block;
+}
+
+.resume {
+    display: inline-block;
+    top: 5px;
+    padding-left: 8px;
+    text-decoration: underline;
+}
+
+#link_resume {
+    color: #333;
+}
+
+.link_img {
+    vertical-align:middle;
+    width: 25px;
+    height: auto;
+    display: inline-block;
+}
+
+.profile_overview {
+    width: 90%;
+    margin:0 5%;
+    margin-top: 40px;
+    background-color: #eee;
+    padding: 40px;
+}
+
+
+.profile_title {
+    font-size: 1.5em;
+    padding-bottom: 20px;
+}
+
+.profile_history {
+    width: 90%;
+    margin:0 5%;
+    margin-top: 40px;
+    padding: 40px;
+}
+
+
+.profile_comment {
+    width: 70%;
+    float:left;
+    margin-right: 5%;
+}
+
+.profile_rate {
+    width: 25%;
+    float: left;
+}
+
+.profile_rate .fa {
+    color: #fbb03b;
+}
+
+.grade {
+    font-size: 1.7em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.profile_star {
+    text-align: center;
+}
+
+.profile_history_subtitle {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.profile_history_detail {
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 40px;
+}
+
+.overview_intro {
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 1280px) {
