@@ -538,6 +538,11 @@ label {
     margin-left: 20px;
 }
 
+.overview_intro {
+    margin-bottom: 20px;
+}
+
+/* */
 #profile_whole {
     width: 95%;
     margin: 0 auto;
@@ -548,8 +553,11 @@ label {
     float: left;
 }
 
+
+
 #profile_contact {
     background: #333;
+    
 }
 
 #link_contact {
@@ -563,7 +571,7 @@ label {
     height: auto;
     width: 100%;
     border: 1px solid rgba(225,225,225, .7);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .one_profile {
@@ -572,22 +580,24 @@ label {
     margin-left: 5%;
     float: left;
     width: 25%;
-    height:auto;
+    height:auto; 
+    
 }
 
 .one_profile_des {
     font-size: 0.9em;
     text-align: center;
-    line-height: 1.6em;
+    line-height: 1.6em;   
     width: 100%;
     display: block;
     margin-top: 5px;
+   
 }
 
 .one_profile_other {
     background: #333;
     padding: 1em 0.5em;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 
@@ -601,7 +611,6 @@ label {
     line-height: 1.6em;   
     display: block;
     padding-top: 1.5em;
-    margin-left: 50px;
 }
 
 .one_detail_people h5 {
@@ -658,20 +667,30 @@ label {
     margin:0 5%;
     margin-top: 40px;
     background-color: #eee;
-    padding: 40px;
+    border-radius: 5px;
 }
-
-
+ 
 .profile_title {
     font-size: 1.5em;
-    padding-bottom: 20px;
+    padding:40px 0 20px 0;
+}
+
+.profile_history_center {
+    padding: 0 40px;
+}
+
+.overview_intro {
+    padding:0 0 20px 0;
+}
+
+.profile_overview a p {
+    padding:0 0 40px 0;
 }
 
 .profile_history {
     width: 90%;
     margin:0 5%;
     margin-top: 40px;
-    padding: 40px;
 }
 
 
@@ -689,6 +708,8 @@ label {
 .profile_rate .fa {
     color: #fbb03b;
 }
+
+
 
 .grade {
     font-size: 1.7em;
@@ -711,8 +732,72 @@ label {
     margin-bottom: 40px;
 }
 
-.overview_intro {
-    margin-bottom: 20px;
+.comment {
+    width: 90%;
+    margin:0 5%;
+}
+
+.comment_title {
+    margin-bottom: 15px;
+    padding: 10px 10px;
+    font-size: 1.2em;
+    color: #666;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    font-weight: 300;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.comment_score {
+    float: left;
+}
+
+.comment_score .fa {
+    color: #fbb03b;
+}
+.comment_score_p {
+    display: inline-block;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.comment_score_fa {
+    display: inline-block;
+    font-size: 1.4em;
+  
+    padding-top: 10px;
+}
+
+.comment_des {
+    margin: 0;
+    padding: 10px 10px;
+    font-size: 1.2em;
+    color: #666;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    font-weight: 300;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.comment_submit{
+    background: #333;
+    padding: 15px 20px;
+    border-radius: 5px;
+    width: 100px;
+    float: right;
+}
+
+#comment_link {
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    font-size: 1em;
+}
+
+.comment_oneline {
+    margin-top: 10px;
 }
 
 #login_title {
@@ -823,7 +908,6 @@ table {
     .form-container .center_form {
         width: 60%;
     }
-
 }
 
 @media screen and (max-width: 520px) {
