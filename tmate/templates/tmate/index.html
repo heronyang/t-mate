@@ -12,7 +12,7 @@
 
 <header>
   <nav>
-    <a href="{% url 'index' %}" id="logo"><img src="{% static 'img/logo-m.png'%}" alt="TMate"/></a>
+    <a href="{% url 'index' %}" id="logo"><img src="{% static 'img/logo-01.png'%}" alt="TMate"/></a>
     <ul class="navigation">
       <!-- UL STARTS ABOVE TO ELIMINATE VISUAL GAP  -->
 
@@ -31,11 +31,11 @@
 <section>
   <div class="big_title">
     {% if not is_login %}
-    <img id="big_img" src="{% static 'img/tmate.jpg' %}" alt=""/>
+    <img id="big_img" src="{% static 'img/bg-01.png' %}" alt=""/>
     <div class="text_area">
       <div class="text_area_width">
         <h2>Meet Designers and Programmers</h2>
-        <h5>Programmers, designers and ideas meet together.<span class="only_mobile"><br /></span>
+        <h5>Programmers, designers and ideas meet together.<span class="only_mobile"></span>
           Get works done.</h5>
       </div>
     </div>
@@ -56,8 +56,10 @@
     {% endif %}
   </div>
   <div class="container">
+   
     <div class="design_program">
-      <h5 class="subtitle">Who are in TMate?</h5>
+      <h5 class="subtitle">Find the right freelancers for your team.</h5>
+      <p class="subtitle_des">Based on skills, comments and locations, find the right people.</p>
     </div>
     <div class="showcase">
 
@@ -164,6 +166,16 @@
           {% endfor %}
 
         </ul>
+      </div>
+       <div class="clear"></div>
+    </div>
+  </div>
+  <div id="product">
+    <div class="container">
+      <div class="design_program">
+        <h5 class="subtitle">Products come to life</h5>
+        <p class="subtitle_des">Backed by the support of Tmate, collaborators remain involved in product 
+  marketing and maintenance as the product continues to evolve.</p>
       </div>
     </div>
   </div>
