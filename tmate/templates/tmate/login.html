@@ -9,6 +9,9 @@
 {% endblock %}
 
 {% block content %}
+
+{% load static %}
+
 <div class="form-container">
   <div id="close">
     <a href="{% url 'index' %}"><i class="fa fa-times fa-2x"></i></a>
@@ -23,8 +26,28 @@
 
   <div class="center_form">
     <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+      {{ form.non_field_errors }}
       <table>
-        {{form.as_table}}
+        <tr>
+          <th>
+            {{ form.username.errors }}
+            <img class="register_icon" src="{% static 'img/user-01.png' %}"/>
+          </th>
+          <td>
+            {{ form.username.errors }}
+            <input id="id_username" placeholder="Username" maxlength="254" name="username" type="text">
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{ form.password1.errors }}
+            <img class="register_icon" src="{% static 'img/password-01.png' %}"/>
+          </th>
+          <td>
+            {{ form.password.errors }}
+            <input id="id_password" placeholder="Password" name="password" type="password">
+          </td>
+        </tr>
         {% csrf_token %}
       </table>
       <!--how to add this as register?-->
