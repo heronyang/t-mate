@@ -801,8 +801,14 @@ label {
     font-size: 16px;
 }
 
+.profile_date {
+    font-size: 13px !important;
+    padding-top: 10px;
+    color: #999999;
+}
+
 .grade {
-    font-size: 1.7em;
+    font-size: 24px;
     text-align: center;
     margin-bottom: 10px;
 }
@@ -830,11 +836,12 @@ label {
 .comment_title {
     margin-bottom: 15px;
     padding: 10px 10px;
-    font-size: 1.2em;
-    color: #666;
+    font-size: 16px;
+    color: #999999;
     border: 2px solid #eee;
     border-radius: 5px;
-    font-weight: 300;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
     width: 100%;
     box-sizing: border-box;
 }
@@ -848,7 +855,7 @@ label {
 }
 .comment_score_p {
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 16px;
     color: #333;
 }
 
@@ -861,11 +868,11 @@ label {
 .comment_des {
     margin: 0;
     padding: 10px 10px;
-    font-size: 1.2em;
-    color: #666;
+    font-size: 16px;
+    color: #999999;
     border: 2px solid #eee;
     border-radius: 5px;
-    font-weight: 300;
+    font-weight: 400;
     box-sizing: border-box;
     width: 100%;
 }
@@ -882,7 +889,7 @@ label {
     text-decoration: none;
     color: #fff;
     text-align: center;
-    font-size: 1em;
+    font-size: 16px;
 }
 
 .comment_oneline {
@@ -953,7 +960,7 @@ table {
  
 .submit_profile {
 
-    font-size:1em;
+    font-size:16px;
     text-align: center;
     text-decoration: none;
     color: #ffffff;
@@ -970,6 +977,10 @@ table {
     outline: none;
     cursor: pointer;
     border:2px solid #333;
+
+    padding: 15px 20px;
+    border-radius: 5px;
+    width: 100px;
    
 }
 
@@ -1174,8 +1185,8 @@ table {
     }
 
     #logo img {
-        max-height: 40px;
-        max-width: 40px;
+        max-height: 55px;
+        max-width: 55px;
     }
 
     .register-container .center_form {
