@@ -13,7 +13,7 @@
     <a href="{% url 'index' %}" id="logo"><img src="{% static 'img/logo-01.png'%}" alt="TMate"/></a>
     <div id="search_searchbar">
       <form id="tfnewsearch" method="get" action="{% url 'search' %}">
-        <input type="text" id="tfq" class="search_blank" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
+        <input value="{{key}}" type="text" id="tfq" class="search_blank" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
         <input type="submit" value="Search" class="search_button"/>
       </form>
 
@@ -31,7 +31,7 @@
     </ul>
     <div class="clear"></div>
     <form id="mobile" method="get" action="{% url 'search' %}">
-      <input type="search" placeholder="&#xf002;" id="mobile_search" class="search_blank" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
+      <input value="{{key}}" type="search" placeholder="&#xf002;" id="mobile_search" class="search_blank" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
     </form>
   </nav>
 
@@ -60,7 +60,7 @@
           <div class="show_people">
               <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
             <div class="position">
-              <p class="position_tag">Web Designer</p>
+              <p class="position_tag">{{profile.position}}</p>
             </div>
           </div>
           <div class="show_other">
@@ -98,7 +98,7 @@
           <div class="show_people">
               <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
             <div class="position">
-              <p class="position_tag">Web Designer</p>
+              <p class="position_tag">{{profile.position}}</p>
             </div>
           </div>
           <div class="show_other">
@@ -136,7 +136,7 @@
           <div class="show_people">
               <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
             <div class="position">
-              <p class="position_tag">Web Designer</p>
+              <p class="position_tag">{{profile.position}}</p>
             </div>
           </div>
           <div class="show_other">
@@ -174,7 +174,7 @@
           <div class="show_people">
               <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
             <div class="position">
-              <p class="position_tag">Web Designer</p>
+              <p class="position_tag">{{profile.position}}</p>
             </div>
           </div>
           <div class="show_other">
@@ -212,7 +212,7 @@
           <div class="show_people">
               <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
             <div class="position">
-              <p class="position_tag">Web Designer</p>
+              <p class="position_tag">{{profile.position}}</p>
             </div>
           </div>
           <div class="show_other">
@@ -250,7 +250,7 @@
           <div class="show_people">
               <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
             <div class="position">
-              <p class="position_tag">Web Designer</p>
+              <p class="position_tag">{{profile.position}}</p>
             </div>
           </div>
           <div class="show_other">
@@ -288,4 +288,8 @@
 {% endblock %}
 
 {% block js %}
+<script>
+  var input = $('#tfq');
+  input.focus().val(input.val() + " ");
+</script>
 {% endblock %}

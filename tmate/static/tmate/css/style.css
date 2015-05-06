@@ -301,7 +301,7 @@ textarea {
 
 .show_des h5 {
     font-weight: 500;
-    font-size: 1.1em;
+    font-size: 1.5em;
     margin-bottom: 1em;
 }
 
@@ -310,12 +310,15 @@ textarea {
 }
 
 .position_tag {
-    background: #aaa;
+    /*
+    background: #928887;
     border-radius: 5px;
+    color: #fff;
+    */
+    color: black;
     padding: 5px 10px;
     margin: 5px 10px 5px 0;
     display: inline-block;
-    color: #fff;
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
 }
@@ -328,7 +331,6 @@ textarea {
     margin: 5px 10px 5px 0;
     color: #333;
     font-family: 'Raleway', sans-serif;
-    width: 100%;
     font-size: 14px;
 }
 
@@ -970,7 +972,6 @@ table {
     width: 30px;
 }
 
-=======
 .icon a {
     display: block;
 }

@@ -126,7 +126,7 @@ def search(request):
 
     profiles = Profile.objects.filter(reduce(operator.and_, query_list)).distinct()
 
-    context = {'profiles': profiles, 'is_login': is_login}
+    context = {'profiles': profiles, 'is_login': is_login, 'key': qs}
     return render(request, 'tmate/search.html', context)
 
 @transaction.atomic
