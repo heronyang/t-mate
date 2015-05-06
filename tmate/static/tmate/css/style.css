@@ -175,8 +175,8 @@ textarea {
     height: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 300px;
+    max-height: 300px;
 }
 /**new **/
 .subtitle {
@@ -262,7 +262,7 @@ textarea {
 .index_container {
     width: 90%;
     margin: auto;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 
 .container_register {
@@ -290,18 +290,13 @@ textarea {
     line-height: 1.6em;
     width: 100%;
     display: block;
-    padding-top: 1.5em;
-}
-
-.show_people {
-    background: #fff;
-    padding: 0 0.5em 1em 0.5em;
-}
-
-.show_other {
+    padding: 1.5em 0;
     background: #eee;
-    padding: 1em 0.5em;
+}
 
+.show_people a {
+    text-decoration: none;
+    color: #333;
 }
 
 .show_des h5 {
@@ -322,7 +317,7 @@ textarea {
     display: inline-block;
     color: #fff;
     font-family: 'Raleway', sans-serif;
-    font-size: 1em;
+    font-size: 14px;
 }
 
 .skill_tag {
@@ -333,7 +328,7 @@ textarea {
     margin: 5px 10px 5px 0;
     color: #333;
     font-family: 'Raleway', sans-serif;
-    font-size: 1em;
+    font-size: 14px;
 }
 
 .skill_tag a {
@@ -344,6 +339,10 @@ textarea {
 .people_profile,
 .people_profile_container {
    width: 100%;
+}
+
+.people_profile {
+    display: block;
 }
 
 .half {
@@ -843,8 +842,7 @@ label {
 }
 
 #product {
-    background: #eee;
-    margin-top: 20px; 
+    background: #eee; 
 }
 
 table {
@@ -873,7 +871,7 @@ table {
     padding: 10px 20px;
     font-size:1em;
     color:#666;
-    border:2px solid #333;
+    border:2px solid #928887;
     font-weight: 300;
     border-radius: 5px 0px 0px 5px;
     width: 500px;
@@ -888,8 +886,8 @@ table {
     text-align: center;
     text-decoration: none;
     color: #ffffff;
-    background: #333;
-    border:2px solid #333;
+    background: #928887;
+    border:2px solid #928887;
     border-radius: 0px 5px 5px 0px;
 }
 
@@ -934,30 +932,45 @@ table {
     width: 103%;
     padding: 5px;
     font-size: 1em;
-    color: #666;
+    color: #928887;
     font-family: 'Raleway', sans-serif;
 }
 
 ::-webkit-input-placeholder {
-   color: #666;
+   color: #928887;
    font-family: 'Raleway', sans-serif;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #666;
+   color: #928887;
    font-family: 'Raleway', sans-serif; 
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #666;
+   color: #928887;
    font-family: 'Raleway', sans-serif;
 }
 
 :-ms-input-placeholder {  
-   color: #666;
+   color: #928887;
    font-family: 'Raleway', sans-serif;
 }
 
+.icon a {
+    display: block;
+}
+
+.des_color {
+    background: #f15a24;
+    border-color: #f15a24;
+    margin-top: 20px;
+}
+
+.pro_color {
+    background: #00a5bb;
+    border-color: #00a5bb;
+    margin-top: 20px;
+}
 
 @media screen and (max-width: 1280px) {
 
