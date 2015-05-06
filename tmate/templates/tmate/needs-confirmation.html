@@ -1,14 +1,45 @@
 {% extends "tmate/base.html" %}
 
+{% block nav %}
+{% endblock %}
+
 {% block title %}Check Your Email{% endblock %}
 
 {% block static %}
 {% endblock %}
 
 {% block content %}
-<h1 class="space">Sent to {{email}}, please check.</h1>
+<div class="form-container">
+    <div id="close">
+    </div>
+    <div class="text_area_width">
+        <!-- new -->
+        <div class="titles">
+        </div>
+        <!--end-->
+    </div>
+
+    <div class="center_form">
+        <h1 class="space">Sent to {{email}}, please check.</h1>
+        <p class="center">Direct to login page in <span id="countdown-seconds">5</span> seconds.</p>
+    </div>
+</div>
+<div style="margin-top:200px"></div>
 
 {% endblock %}
 
 {% block js %}
+<script>
+    var counter = 5;
+    var interval = setInterval(function() {
+        counter--;
+        // Display 'counter' wherever you want to display it.
+        $('#countdown-seconds').text(counter);
+        if (counter == 0) {
+            // Display a login box
+            clearInterval(interval);
+            window.location.href = "/login";
+        }
+    }, 1000);
+</script>
 {% endblock %}
