@@ -45,12 +45,15 @@ class Profile(models.Model):
             return 0
 
         for c in comments:
-            total += c.credits
+            total += c.score
 
         return total * 1.0 / comments.count()
 
     def _get_credits_d(self):
-        return int(_get_credits(self))
+        return int(self._get_credits())
+
+    def _get_inv_credits_d(self):
+        return 5 - int(self._get_credits())
 
 
     # properties
@@ -60,6 +63,7 @@ class Profile(models.Model):
 
     credits     = property(_get_credits)
     credits_d   = property(_get_credits_d)
+    inv_credits_d   = property(_get_inv_credits_d)
 
     location    = models.CharField(blank=True, max_length=const.SHORT_TEXT_LENGTH)
 
@@ -84,12 +88,16 @@ class Profile(models.Model):
 #
 class Comment(models.Model):
 
-    CHOICES = [(i,i) for i in range(5)]
+    CHOICES = [(i,i) for i in range(6)]
+
+    def _get_inv_score(self):
+        return 5 - self.score
 
     user        = models.ForeignKey(User, related_name="+")
     author      = models.ForeignKey(User, related_name="+")
     title       = models.CharField(max_length=const.SHORT_TEXT_LENGTH)
     content     = models.TextField()
-    score       = models.IntegerField(choices=CHOICES)
+    score       = models.IntegerField(choices=CHOICES, default=0)
+    inv_score   = property(_get_inv_score)
     ctime       = models.DateTimeField(auto_now_add=True)
 

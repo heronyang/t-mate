@@ -6,6 +6,7 @@
 {% block content %}
 
 {% load static %}
+{% load tmate_filters %}
 
 <section id="profile_whole">
 
@@ -35,11 +36,20 @@
       {% for ht in profile.skills.all %}
       <p class="skill_tag"><a href="">{{ht.content}}</a></p>
       {% endfor %}
+
+
     </div>
 
     <div>
       <div class="profile_location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> <p>{{profile.location}}</p></div>
-      <div class="profile_location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i> <p>{{profile.credits}}</p></div>
+      <div class="profile_location">
+          {% for i in profile.credits_d|get_range %}
+          <i class="fa fa-star" style="color: #777;"></i>
+          {% endfor %}
+          {% for i in profile.inv_credits_d|get_range %}
+          <i class="fa fa-star-o" style="color: #777;"></i>
+          {% endfor %}
+          <p>{{profile.credits}}</p></div>
     </div>
     <div>
       <div class="profile_location">
@@ -64,6 +74,9 @@
   <div class="profile_history">
     <div class="profile_history_center">
       <h2 class="profile_title">Work History&Overview</h2>
+      {% if not comments %}
+      <p>Empty</p>
+      {% endif %}
 
       {% for c in comments %}
       <div class="profile_history_detail">
@@ -74,7 +87,16 @@
         </div>
         <div class="profile_rate">
           <h2 class="grade">{{c.score}}</h2>
-          <div class="profile_star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+
+          <div class="profile_star">
+            {% for i in c.score|get_range %}
+            <i class="fa fa-star"></i>
+            {% endfor %}
+            {% for i in c.inv_score|get_range %}
+            <i class="fa fa-star-o"></i>
+            {% endfor %}
+          </div>
+
         </div>
         <div class="clear"></div>
       </div>
@@ -104,23 +126,29 @@
         <div class="comment_oneline">
           <div class="comment_score">
             <p class="comment_score_p">Score:</p>
-            <div class="comment_score_fa"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
-            <p class="comment_score_p">(4.5)</p>
+            <div class="comment_score_fa">
+              <span class="input-star"><i class="fa fa-star-o"></i></span>
+              <span class="input-star"><i class="fa fa-star-o"></i></span>
+              <span class="input-star"><i class="fa fa-star-o"></i></span>
+              <span class="input-star"><i class="fa fa-star-o"></i></span>
+              <span class="input-star"><i class="fa fa-star-o"></i></span>
+            </div>
+            <p id="score_display" class="comment_score_p">(0)</p>
             {{form.score.errors}}
-            {{form.score}}
+            <!--{{form.score}}-->
           </div>
-          <div>
             {% if is_login %}
-            <!--<a id="comment_link" href="#"><p>Submit</p></a>-->
+            <div>
+              <input type="submit" value="Submit" class="submit_profile"/>
+            </div>
             {% else %}
-            
-            <input type="submit" value="Submit" class="submit_profile"/>
+            <div class="comment_submit">
+              <a id="comment_link" href="{% url 'django.contrib.auth.views.login' %}?next={{request.path}}"><p>Submit</p></a>
+            </div>
             {% endif %}
-          </div>
           <div class="clear"></div>
         </div>
 
-        
       {% csrf_token %}
       </form>
 
@@ -136,4 +164,28 @@
 {% endblock %}
 
 {% block js %}
+<script>
+  var stars = $('.input-star');
+  function star_turn_on(n) {
+    var i=0;
+    for(; i<=n ; i++) {
+      stars[i].innerHTML='<i class="fa fa-star"></i>';
+    }
+    for(; i<5 ; i++) {
+      stars[i].innerHTML='<i class="fa fa-star-o"></i>';
+    }
+
+  }
+  stars.hover(
+    function() {
+      var ind =  $(this).index();
+      console.log(ind);
+      star_turn_on(ind);
+      $('#id_score').val(ind+1);
+      $('#score_display').text("(" + (ind + 1) + ")");
+    }, function() {
+      console.log("out");
+    }
+  );
+</script>
 {% endblock %}

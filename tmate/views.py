@@ -14,6 +14,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 # Used to send mail from within Django
 from django.core.mail import send_mail
 
+from django.template import Library
+
+
 # App
 from tmate.models import *
 from tmate.forms import *
@@ -21,6 +24,12 @@ from tmate.s3 import s3_upload
 
 import time
 import operator
+
+register = Library()
+
+@register.filter
+def get_range( value ):
+    return range( value )
 
 def index(request):
     is_login = False
@@ -202,4 +211,3 @@ def confirm_registration(request, username, token):
     user.is_active = True
     user.save()
     return render(request, 'tmate/confirmed.html', {})
-
