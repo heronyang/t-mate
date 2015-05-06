@@ -27,10 +27,6 @@ import operator
 
 register = Library()
 
-@register.filter
-def get_range( value ):
-    return range( value )
-
 def index(request):
     is_login = False
     if request.user and request.user.is_authenticated():
@@ -126,7 +122,7 @@ def search(request):
 
     profiles = Profile.objects.filter(reduce(operator.and_, query_list)).distinct()
 
-    context = {'profiles': profiles, 'is_login': is_login}
+    context = {'profiles': profiles, 'is_login': is_login, 'key': qs}
     return render(request, 'tmate/search.html', context)
 
 @transaction.atomic
