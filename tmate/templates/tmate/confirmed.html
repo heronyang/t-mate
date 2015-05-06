@@ -9,10 +9,22 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="space">Confirmed<br /><br />
-  <a class="space" href="{% url 'index' %}">Go to Home Page</a>
-</h1>
+<h1 class="space">Confirmed<br /><br /></h1>
+<p class="center">Direct to login page in <span id="countdown-seconds">5</span> seconds.</p>
 {% endblock %}
 
 {% block js %}
+<script>
+  var counter = 5;
+  var interval = setInterval(function() {
+    counter--;
+    // Display 'counter' wherever you want to display it.
+    $('#countdown-seconds').text(counter);
+    if (counter == 0) {
+      // Display a login box
+      clearInterval(interval);
+      window.location.href = "/login";
+    }
+  }, 1000);
+</script>
 {% endblock %}
