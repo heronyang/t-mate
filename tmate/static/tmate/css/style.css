@@ -265,6 +265,10 @@ textarea {
     padding-bottom: 20px;
 }
 
+.index_container h3 {
+    font-size: 20px;
+}
+
 .container_register {
     width: 90%;
     margin: auto;
