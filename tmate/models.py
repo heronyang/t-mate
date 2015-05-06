@@ -61,3 +61,13 @@ class Profile(models.Model):
     def __unicode__(self):
         return '[Profile: ' + self.username + ']'
 
+#
+class Comment(models.Model):
+
+    CHOICES = [(i,i) for i in range(5)]
+
+    user        = models.ForeignKey(User, related_name="+")
+    author      = models.ForeignKey(User, related_name="+")
+    content     = models.TextField()
+    score       = models.IntegerField(max_length=5, choices=CHOICES)
+

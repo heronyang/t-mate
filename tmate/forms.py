@@ -73,3 +73,7 @@ class ProfileForm(forms.ModelForm):
             raise forms.ValidationError('File too big (max size is {0} bytes)'.format(const.MAX_UPLOAD_SIZE))
         return image
 
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
