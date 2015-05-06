@@ -17,6 +17,9 @@
   <div id="back">
       <a href="javascript:history.back()"><i class="fa fa-arrow-left fa-2x"></i></a>
   </div>
+  <div id="close">
+    <a href="{% url 'index' %}"><i class="fa fa-times fa-2x"></i></a>
+  </div>
 
   <div class="text_area_width">
     <h1 id="intro_big" class="upper">Create Your Account</h1>
@@ -109,7 +112,7 @@
           <th>
           </th>
           <td>
-            <h2>Tell More About You</h2>
+            <h2 id="tell_me">Tell More About You</h2>
           </td>
         </tr>
 
@@ -182,7 +185,7 @@
         <tr>
           <th>
             {{ form.overview.errors }}
-            <img class="register_icon" src="{% static 'img/profile-01.png' %}"/>
+            
           </th>
           <td>
             <textarea cols="40" id="id_overview" name="overview" placeholder="Overview" rows="10"></textarea>
@@ -193,7 +196,7 @@
         <input type='hidden' name='csrfmiddlewaretoken' value='ERu25O8v95Kjqm2RR4YMOCD7XvPsphwb' />
       </table>
       <div class="bottom_buttons">
-        <a href="{% url 'index' %}">Home</a>
+        
         <input class="sign_up_button" type="submit" value="Submit"/>
       </div>
       {% csrf_token %}
