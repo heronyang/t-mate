@@ -9,7 +9,7 @@
 
 <section>
   <div class="big_title">
-    {% if not is_login %}
+ 
     <img id="big_img" src="{% static 'img/bg-01.png' %}" alt=""/>
     <div class="text_area">
       <div class="text_area_width">
@@ -26,12 +26,7 @@
       </form>
       <div class="tfclear"></div>
   </div>
-  {% else %}
-  <form id="tfnewsearch" method="get" action="{% url 'search' %}">
-    <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
-    <input type="submit" value="Search" class="tfbutton2"/>
-  </form>
-  {% endif %}
+  
 
 
   <div class="index_container">
