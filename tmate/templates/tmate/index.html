@@ -116,21 +116,21 @@
     <div class="showcase">
       <div class="third center">
         <div class="stat">
-          <h4>2,932</h4>
+          <h4><span id="stat1">2,932</span></h4>
           <hr/>
           <p>Registered Users</p>
         </div>
       </div>
       <div class="third center">
         <div class="stat">
-          <h4>3,21</h4>
+          <h4><span id="stat2">3,221</span></h4>
           <hr/>
           <p>Users Online</p>
         </div>
       </div>
       <div class="third center">
         <div class="stat">
-          <h4>298,323,291</h4>
+          <h4><span id="stat3">298,323,291</span></h4>
           <hr/>
           <p>Page Views</p>
         </div>
@@ -146,4 +146,12 @@
 {% endblock %}
 
 {% block js %}
+<script>
+  var ele1 = $('#stat1');
+  var ele2 = $('#stat2');
+  var ele3 = $('#stat3');
+  var s1 = parseInt(ele1.text().replace(/,/g, ''))
+  var s2 = parseInt(ele2.text().replace(/,/g, ''))
+  var s3 = parseInt(ele3.text().replace(/,/g, ''))
+</script>
 {% endblock %}
