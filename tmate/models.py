@@ -38,7 +38,7 @@ class Profile(models.Model):
 
     def _get_credits(self):
 
-        comments = Comment.objects.filter(user=self)
+        comments = Comment.objects.filter(user=self.user)
         total = 0
 
         if comments.count() <= 0:
