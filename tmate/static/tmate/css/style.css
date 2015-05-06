@@ -193,6 +193,19 @@ textarea {
     color: #999999;
 }
 
+.promotion_container .subtitle_des {
+    width: 60%;
+    line-height: 30px;
+}
+
+.promotion_container .subtitle {
+    margin-top: 80px;
+}
+
+.promotion_container {
+    height: 450px;
+}
+
 .design_program {
     padding-top: 100px;
 }
@@ -268,12 +281,33 @@ textarea {
     font-size: 20px;
 }
 
+.index_container.gray {
+    background: #f9f9f9;
+}
+
+.promotion_container {
+    display: inline-block;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .container_register {
     width: 90%;
     margin: auto;
     position: relative;
     top: 20px;
     padding-bottom: 40px;
+}
+
+.showcase.promotion {
+    display: inline-block;
+    padding-top: 40px;
+}
+
+.vertical_center {
+    height: 100%;
+    margin: auto auto;
 }
 
 /*
@@ -1294,6 +1328,10 @@ table {
     .search_middle {
       position: relative;
       z-index: 1000;
+    }
+
+    .promotion_container .half {
+        width: 100%;
     }
 
 }
