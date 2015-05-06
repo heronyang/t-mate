@@ -1,0 +1,190 @@
+{% extends "tmate/base.html" %}
+
+{% block nav %}
+{% endblock %}
+
+{% block static %}
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<header>
+  <nav>
+    <a href="{% url 'index' %}" id="logo"><img src="{% static 'img/logo-01.png'%}" alt="TMate"/></a>
+    <ul class="navigation">
+      <!-- UL STARTS ABOVE TO ELIMINATE VISUAL GAP  -->
+
+      {% if not is_login %}
+      <li><a href="{% url 'login' %}">LOG IN</a></li>
+      {% else %}
+      <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+      {% endif %}
+
+      <li><a id="get_started" href="{% url 'register_entry' %}">GET STARTED</a></li>
+    </ul>
+    <div class="clear"></div>
+  </nav>
+</header>
+
+<section>
+  <div class="big_title">
+    {% if not is_login %}
+    <img id="big_img" src="{% static 'img/bg-01.png' %}" alt=""/>
+    <div class="text_area">
+      <div class="text_area_width">
+        <h2>Meet Designers and Programmers</h2>
+        <h5>Programmers, designers and ideas meet together.<span class="only_mobile"></span>
+          Get works done.</h5>
+      </div>
+    </div>
+    <div class="search_middle">
+      <div id="searchbar">
+        <form id="tfnewsearch" method="get" action="{% url 'search' %}">
+          <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
+          <input type="submit" value="Search" class="tfbutton2"/>
+        </form>
+        <div class="tfclear"></div>
+      </div>
+    </div>
+    {% else %}
+    <form id="tfnewsearch" method="get" action="{% url 'search' %}">
+      <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
+      <input type="submit" value="Search" class="tfbutton2"/>
+    </form>
+    {% endif %}
+  </div>
+  <div class="container">
+   
+    <div class="design_program">
+      <h5 class="subtitle">Find the right freelancers for your team.</h5>
+      <p class="subtitle_des">Based on skills, comments and locations, find the right people.</p>
+    </div>
+    <div class="showcase">
+
+      <div class="half">
+
+        <div class="icon">
+          <img class="icon_img" src="{% static 'img/icon.png' %}"/>
+          <p class="job_title">Designers</p>
+        </div>
+
+        <ul class="show_designer">
+
+          <!-- per designer here -->
+          {% for profile in profiles_designers %}
+          <li class="show_one_designer">
+            <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
+              <a href="{{profile.picture_url}}" target="_blank">
+                <div class="people_profile_container">
+                  <img class="people_profile" src="{{profile.picture_url}}"/>
+                </div>
+              </a>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="show_des">
+              <div class="show_people">
+                  <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
+                <div class="position">
+                  <p class="position_tag">Web Designer</p>
+                </div>
+              </div>
+              <div class="show_other">
+
+                <div class="skill">
+                  {% for ht in profile.skills.all %}
+                  <p class="skill_tag"><a href="">{{ht.content}}</a></p>
+                  {% endfor %}
+                </div>
+
+                <p class="location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> {{profile.location}}</p>
+                <p class="location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i>
+
+                  {% if is_login %}
+                  <a href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
+                  {% endif %}
+
+                </p>
+
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+
+        </ul>
+      </div>
+      <div class="half" style="border-left: 3px solid #eee">
+        <div class="icon">
+          <img class="icon_img" src="{% static 'img/icon2.png' %}"/>
+          <p class="job_title">Programmers</p>
+        </div>
+        <ul class="show_designer">
+
+          <!-- per designer here -->
+          {% for profile in profiles_programmers %}
+          <li class="show_one_designer">
+            <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
+              <a href="{{profile.picture_url}}" target="_blank">
+                <div class="people_profile_container">
+                  <img class="people_profile" src="{{profile.picture_url}}"/>
+                </div>
+              </a>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="show_des">
+              <div class="show_people">
+                <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
+                <div class="position">
+                  <p class="position_tag">Web Designer</p>
+                </div>
+              </div>
+              <div class="show_other">
+
+                <div class="skill">
+                  {% for ht in profile.skills.all %}
+                  <p class="skill_tag"><a href="">{{ht.content}}</a></p>
+                  {% endfor %}
+                </div>
+
+                <p class="location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> {{profile.location}}</p>
+                <p class="location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i>
+
+                  {% if is_login %}
+                  <a href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
+                  {% endif %}
+
+                </p>
+
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+
+        </ul>
+      </div>
+       <div class="clear"></div>
+    </div>
+  </div>
+  <div id="product">
+    <div class="container">
+      <div class="design_program">
+        <h5 class="subtitle">Products come to life</h5>
+        <p class="subtitle_des">Backed by the support of Tmate, collaborators remain involved in product 
+  marketing and maintenance as the product continues to evolve.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="clear"></div>
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

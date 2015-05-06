@@ -68,11 +68,12 @@ def search(request):
     if request.user and request.user.is_authenticated():
         is_login = True
 
-    profiles = Profile.objects.filter( Q(user__last_name__contains=q)|
+    profiles = Profile.objects.filter(
+            Q(user__last_name__contains=q)  |
             Q(user__first_name__contains=q)
             )
     context = {'profiles': profiles, 'is_login': is_login}
-    return render(request, 'tmate/index.html', context)
+    return render(request, 'tmate/search.html', context)
 
 @transaction.atomic
 @requires_csrf_token
