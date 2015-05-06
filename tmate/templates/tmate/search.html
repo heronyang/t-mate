@@ -1,16 +1,14 @@
 {% extends "tmate/base.html" %}
 
-{% block nav %}
-{% endblock %}
 
 {% block static %}
 {% endblock %}
 
-{% block content %}
-
 {% load static %}
 
+{% block nav %}
 <header>
+
   <nav>
     <a href="{% url 'index' %}" id="logo"><img src="{% static 'img/logo-01.png'%}" alt="TMate"/></a>
     <div id="search_searchbar">
@@ -33,11 +31,14 @@
     </ul>
     <div class="clear"></div>
     <form id="mobile" method="get" action="{% url 'search' %}">
-      <input type="search" value="&#xf002;" id="mobile_search"/>
+      <input type="search" placeholder="&#xf002;" id="mobile_search" class="search_blank" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
     </form>
   </nav>
 
 </header>
+{% endblock %}
+
+{% block content %}
 
 <section>
   <div class="container">

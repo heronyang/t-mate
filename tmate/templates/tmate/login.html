@@ -24,13 +24,11 @@
   <div class="center_form">
     <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
       <table>
-        
         {{form.as_table}}
         {% csrf_token %}
       </table>
       <!--how to add this as register?-->
       <div class="bottom_buttons">
-        
         <p id="log_reg"><a href="{% url 'register' %}" class="ui button">If you don't have a TMate account, register here.</a></p>
         <!--new-->
         <a href="{% url 'register' %}?is_to_find=1"><input type="submit" value="Log In" class="sign_up_button"/></a>
@@ -42,4 +40,7 @@
 {% endblock %}
 
 {% block js %}
+<script>
+  $('#id_username').focus();
+</script>
 {% endblock %}
