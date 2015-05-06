@@ -90,6 +90,6 @@ class Comment(models.Model):
     author      = models.ForeignKey(User, related_name="+")
     title       = models.CharField(max_length=const.SHORT_TEXT_LENGTH)
     content     = models.TextField()
-    score       = models.IntegerField(max_length=5, choices=CHOICES)
+    score       = models.IntegerField(choices=CHOICES)
     ctime       = models.DateTimeField(auto_now_add=True)
 
