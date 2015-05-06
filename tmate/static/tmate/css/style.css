@@ -933,25 +933,29 @@ table {
     border-radius: 5px;
     width: 103%;
     padding: 5px;
-    color: #aaa;
     font-size: 1em;
-
+    color: #666;
+    font-family: 'Raleway', sans-serif;
 }
 
 ::-webkit-input-placeholder {
-   color: #aaa;
+   color: #666;
+   font-family: 'Raleway', sans-serif;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #aaa;  
+   color: #666;
+   font-family: 'Raleway', sans-serif; 
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #aaa;  
+   color: #666;
+   font-family: 'Raleway', sans-serif;
 }
 
 :-ms-input-placeholder {  
-   color: #aaa;  
+   color: #666;
+   font-family: 'Raleway', sans-serif;
 }
 
 .radio_group label {
@@ -970,7 +974,7 @@ table {
     }
 
     .text_area h2 {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 
     .text_area h5 {
@@ -1026,6 +1030,9 @@ table {
     }
     .search_blank {
         width: 230px;
+    }
+    .text_area h2 {
+        font-size: 1.8em;
     }
 }
 
@@ -1160,7 +1167,7 @@ table {
 
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 550px) {
 
     html {
         font-size: 12px;
@@ -1171,7 +1178,7 @@ table {
     }
 
     .text_area h2 {
-        font-size: 1.5em;
+        font-size: 1.6em;
     }
 
     .text_area h5 {
@@ -1211,6 +1218,11 @@ table {
 
     .show_one_designer:nth-child(2n) {
         margin-right: 0;
+    }
+
+    .search_middle {
+      position: relative;
+      z-index: 1000;
     }
 
 }
