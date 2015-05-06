@@ -70,10 +70,10 @@
         </tr>
         <tr>
           <th>
-            {{ form.first_name.errors }}
             <img class="register_icon" src="{% static 'img/user-01.png' %}"/>
           </th>
           <td>
+            {{ form.first_name.errors }}
               <input id="{{form.first_name.id_for_label}}" placeholder="First Name" maxlength="20" name="{{form.first_name.name}}" type="text"/>
           </td>
         </tr>
@@ -87,38 +87,38 @@
         </tr>
         <tr>
           <th>
-            {{ form.username.errors }}
             <img class="register_icon" src="{% static 'img/user-01.png' %}"/>
           <td>
+            {{ form.username.errors }}
             <input id="{{form.username.id_for_label}}" placeholder="Username" maxlength="20" name="{{form.username.name}}" type="text">
           </td>
         </tr>
         <tr>
           <th>
-            {{ form.email.errors }}
             <img class="register_icon" src="{% static 'img/email-01.png' %}"/>
           </th>
           <td>
+            {{ form.email.errors }}
             <input id="id_email" maxlength="50" placeholder="Email" name="email" type="email">
           </td>
         </tr>
 
         <tr>
           <th>
-            {{ form.password1.errors }}
             <img class="register_icon" src="{% static 'img/password-01.png' %}"/>
           </th>
           <td>
+            {{ form.password1.errors }}
             <input id="id_password1" maxlength="200" placeholder="Password" name="password1" type="password">
           </td>
         </tr>
 
         <tr class="button_line">
           <th>
-            {{ form.password2.errors }}
             <img class="register_icon" src="{% static 'img/password-01.png' %}"/>
           </th>
           <td>
+            {{ form.password2.errors }}
             <input id="id_password2" maxlength="200" placeholder="Password Again" name="password2" type="password">
           </td>
         </tr>
@@ -132,76 +132,75 @@
 
         <tr class="first_part">
           <th>
-            {{ form.location.errors }}
             <img class="register_icon" src="{% static 'img/location-01.png' %}"/>
           </th>
           <td>
+            {{ form.location.errors }}
             <input id="id_location" maxlength="1024" placeholder="Location" name="location" type="text">
           </td>
         </tr>
         {% if is_to_find %}
         <tr>
           <th>
-            {{ form.website.errors }}
             <img class="register_icon" src="{% static 'img/position-01.png' %}"/>
           </th>
           <td>
+            {{ form.website.errors }}
             <input id="id_website" maxlength="256" placeholder="Website" name="website" type="url">
           </td>
         </tr>
         {% else %}
         <tr>
           <th>
-            {{ form.position.errors }}
             <img class="register_icon" src="{% static 'img/position-01.png' %}"/>
           </th>
           <td>
+            {{ form.position.errors }}
             <input id="id_position" maxlength="1024" placeholder="Position" name="position" type="text">
           </td>
         </tr>
         <tr>
           <th>
-            {{ form.resume_url.errors }}
             <img class="register_icon" src="{% static 'img/resume-01.png' %}"/>
           </th>
           <td>
+            {{ form.resume_url.errors }}
             <input id="id_resume_url" placeholder="Resume" maxlength="256" name="resume_url" type="url">
           </td>
         </tr>
         <tr>
           <th>
-            {{ form.portfolio.errors }}
             <img class="register_icon" src="{% static 'img/link-01.png' %}"/>
           </th>
           <td>
+            {{ form.portfolio.errors }}
             <input id="id_portfolio" maxlength="256" placeholder="Portfolio URL" name="portfolio" type="url">
           </td>
         </tr>
         <tr>
           <th>
-            {{ form.skills.errors }}
             <img class="register_icon" src="{% static 'img/skill-01.png' %}"/>
           </th>
           <td>
+            {{ form.skills.errors }}
             {{form.skills}}
           </td>
         </tr>
         {% endif %}
         <tr>
           <th>
-            {{ form.image.errors }}
             <img class="register_icon" src="{% static 'img/profile-01.png' %}"/>
           </th>
           <td>
+            {{ form.image.errors }}
             {{form.image}}
           </td>
         </tr>
         <tr>
           <th>
-            {{ form.overview.errors }}
-            
           </th>
           <td>
+            {{ form.overview.errors }}
             <textarea cols="40" id="id_overview" name="overview" placeholder="Overview" rows="10"></textarea>
           </td>
         </tr>

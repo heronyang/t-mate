@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8"/>
-    <title>{% block title %}TMate{% endblock %}</title>
+    <title>{% block title %}Tmate{% endblock %}</title>
 
     {% load static %}
 
@@ -13,6 +13,7 @@
     <link href='http://fonts.googleapis.com/css?family=Flamenco:300,400' rel='stylesheet' type='text/css'/>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900' rel='stylesheet' type='text/css'/>
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+      <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
 
       <!--<link rel="icon" href="{{STATIC_URL}}images/favicon.ico" type="image/x-icon" />-->
       <meta name="description" content="Meet Designers and Programmers"/>
@@ -30,7 +31,7 @@
       {% block nav %}
       <header>
         <nav>
-          <a href="{% url 'index' %}" id="logo"><img src="{% static 'img/logo-01.png'%}" alt="TMate"/></a>
+          <a href="{% url 'index' %}" id="logo"><img src="{% static 'img/logo-01.png'%}" alt="Tmate"/></a>
           <ul class="navigation">
             <!-- UL STARTS ABOVE TO ELIMINATE VISUAL GAP  -->
 
@@ -61,7 +62,7 @@
           <i class="fa fa-facebook-square fa-2x"></i>
           <i class="fa fa-envelope-square fa-2x"></i>
         </div>
-        <p>©2015 TMate. All rights reserved.</p>
+        <p>©2015 Tmate. All rights reserved.</p>
 
       </footer>
 
