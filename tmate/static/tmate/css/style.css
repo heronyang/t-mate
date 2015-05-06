@@ -1109,6 +1109,14 @@ table {
     color: #00a5bb;
 }
 
+.mobile_only {
+    display: none;
+}
+
+.desktop_only {
+    display: inline-block;
+}
+
 @media screen and (max-width: 1280px) {
 
     .text_area {
@@ -1355,6 +1363,14 @@ table {
 
     html {
         font-size: 12px;
+    }
+
+    .mobile_only {
+        display: inline-block;
+    }
+
+    .desktop_only {
+        display: none;
     }
 
     .text_area {
