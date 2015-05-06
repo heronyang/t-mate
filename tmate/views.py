@@ -152,6 +152,8 @@ def register(request):
     form = ProfileForm(request.POST, request.FILES)
     context['form'] = form
 
+    print request.POST
+
     if not form.is_valid():
         return render(request, 'tmate/register.html', context)
 

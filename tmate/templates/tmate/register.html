@@ -38,17 +38,31 @@
 
             {% if is_to_find %}
 
+            <!--
             <select id="id_user_type" name="user_type">
               <option value="2" selected="selected">individual hunter</option>
               <option value="3">company hunter</option>
             </select>
+            -->
+
+            <div class="radio_group">
+              <label for="user_type_2"><input type="radio" name="user_type" value="2" id="user_type_2"/>Individual</label>
+              <label for="user_type_3"><input type="radio" name="user_type" value="3" id="user_type_3"/>Company</label>
+            </div>
 
             {% else %}
 
+            <!--
             <select id="id_user_type" name="user_type">
               <option value="0" selected="selected">programmer</option>
               <option value="1">designer</option>
             </select>
+            -->
+
+            <div class="radio_group">
+              <label for="user_type_0"><input type="radio" name="user_type" value="0" id="user_type_0"/>Programmer</label>
+              <label for="user_type_1"><input type="radio" name="user_type" value="1" id="user_type_1"/>Designer</label>
+            </div>
 
             {% endif %}
 

@@ -73,7 +73,7 @@ class Profile(models.Model):
     website     = models.URLField(blank=True, max_length=const.URL_LENGTH)
 
     position    = models.CharField(blank=True, max_length=const.SHORT_TEXT_LENGTH)
-    skills      = models.ManyToManyField(HashTag, related_name='hashtag')
+    skills      = models.ManyToManyField(HashTag, related_name='hashtag', blank=True)
 
     overview    = models.TextField(blank=True)
 
