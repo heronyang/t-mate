@@ -6,5 +6,3 @@ for h in hashtags:
     ht = HashTag(content=h)
     ht.save()
 
-
-

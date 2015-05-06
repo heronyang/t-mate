@@ -20,6 +20,7 @@ from tmate.forms import *
 from tmate.s3 import s3_upload
 
 import time
+import operator
 
 def index(request):
     is_login = False
@@ -58,20 +59,39 @@ def register_entry(request):
 
 def search(request):
 
-    q = ""
+    qs = ""
     if 'q' in request.GET:
-        q = request.GET['q']
-
-    print "--" + q + "---"
+        qs = request.GET['q']
 
     is_login = False
     if request.user and request.user.is_authenticated():
         is_login = True
 
-    profiles = Profile.objects.filter(
-            Q(user__last_name__contains=q)  |
-            Q(user__first_name__contains=q)
-            )
+    query_list = []
+
+    for q in qs.split(" "):
+        ss = HashTag.objects.filter(content__icontains=q)
+
+        if q.lower() == "programmer" or q.lower() == "programmers":
+            query_list.append(Q(user_type=0))
+            continue
+        elif q.lower() == "designer" or q.lower() == "designers":
+            query_list.append(Q(user_type=1))
+            continue
+        else:
+            query_list.append(Q(user_type=0)|Q(user_type=1))
+
+        query_list.append(
+                Q(user__last_name__icontains=q) |
+                Q(user__first_name__icontains=q) |
+                Q(user__username__icontains=q) |
+                Q(skills__in=ss) |
+                Q(location__icontains=q) |
+                Q(position__icontains=q)
+                )
+
+    profiles = Profile.objects.filter(reduce(operator.and_, query_list)).distinct()
+
     context = {'profiles': profiles, 'is_login': is_login}
     return render(request, 'tmate/search.html', context)
 

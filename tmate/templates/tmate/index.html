@@ -87,9 +87,9 @@
 
             <div class="show_des">
               <div class="show_people">
-                  <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
+                <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
                 <div class="position">
-                  <p class="position_tag">Web Designer</p>
+                  <p class="position_tag">{{profile.position}}</p>
                 </div>
               </div>
               <div class="show_other">
@@ -140,7 +140,7 @@
               <div class="show_people">
                 <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
                 <div class="position">
-                  <p class="position_tag">Web Designer</p>
+                  <p class="position_tag">{{profile.position}}</p>
                 </div>
               </div>
               <div class="show_other">
