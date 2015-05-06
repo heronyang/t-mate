@@ -255,6 +255,14 @@ textarea {
     padding-bottom: 40px;
 }
 
+.container_register {
+    width: 90%;
+    margin: auto;
+    position: relative;
+    top: 20px;
+    padding-bottom: 40px;
+}
+
 /*
 .show_one_designer:nth-child(2) {
     margin-right: 0;
@@ -1079,7 +1087,7 @@ table {
     }
 
     #logo {
-        padding-left: 5px;
+        padding: 15px;
     }
 
 }
