@@ -366,7 +366,10 @@ footer p {
 
 .icon_social {
     text-align: center;
+}
 
+.icon_social i {
+    margin: 0px 0.5em;
 }
 
 .form-container .text_area_width {
