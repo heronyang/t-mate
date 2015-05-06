@@ -36,6 +36,7 @@ textarea {
 	width: 10%;
 	float: left;
 	padding: 9px;
+    padding-left: 2em;
 }
 
 /*new*/
@@ -94,6 +95,7 @@ textarea {
     width: 100%;
     height: auto;
     position: relative;
+    display: block;
 }
 
 .text_area {
@@ -128,10 +130,10 @@ textarea {
 }
 
 .search_middle {
-    top: 70%;
-    position: absolute;
     width: 100%;
     margin: 0 auto;
+    background: #333;
+    padding: 20px 0;
 }
 
 #searchbar{
@@ -148,22 +150,24 @@ textarea {
     color:#666;
     border:2px solid #333;
     font-weight: 300;
-    width: 40%;
-    border-radius: 5px 0px 0px 5px;
+    border-right: #f15a24;
+    width: 50%;
+    border-radius: 10px 0px 0px 10px;
 }
 .tfbutton2 {
     margin: 0;
     margin-left: -4px;
-    padding: 20px 20px;
+    padding: 20px 30px;
     font-size:1.4em;
     outline: none;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     color: #ffffff;
-    background: #333;
+    background: #f15a24;
     border:2px solid #333;
-    border-radius: 0px 5px 5px 0px;
+    border-left: #f15a24;
+    border-radius: 0px 10px 10px 0px;
 }
 
 .icon_img {
@@ -252,6 +256,12 @@ textarea {
     margin: auto;
     position: relative;
     top: 100px;
+    padding-bottom: 40px;
+}
+
+.index_container {
+    width: 90%;
+    margin: auto;
     padding-bottom: 40px;
 }
 
@@ -387,15 +397,22 @@ footer p {
 .form-container .center_form tr td input {
     width: 100%;
     line-height: 2em;
+    font-size: 1em;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    font-size: 1em;
+    border: 1px solid #928887;
+    padding-left: 5px;
 }
 
 .form-container .bottom_buttons {
     width: 100%;
     text-align: center;
+}
+
+.register-container .bottom_buttons a {
+    color: #333;
+    text-decoration: none;
 }
 
 .form-container .bottom_buttons * {
@@ -502,6 +519,8 @@ footer p {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    border: 1px solid #928887;
+    padding-left: 5px;
 }
 
 .register-container .bottom_buttons {
@@ -900,6 +919,41 @@ table {
    
 }
 
+#id_overview {
+    border-radius: 5px;
+    border: 1px solid #928887;
+    width: 100%;
+}
+
+#tell_me {
+    padding-top: 20px;
+}
+
+#id_skills {
+    border-radius: 5px;
+    width: 103%;
+    padding: 5px;
+    color: #aaa;
+    font-size: 1em;
+
+}
+
+::-webkit-input-placeholder {
+   color: #aaa;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #aaa;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #aaa;  
+}
+
+:-ms-input-placeholder {  
+   color: #aaa;  
+}
+
 
 @media screen and (max-width: 1280px) {
 
@@ -946,6 +1000,13 @@ table {
     }
     .search_blank {
         width: 350px;
+    }
+
+    .tftextinput2{
+        border-radius: 5px 0px 0px 5px;
+    }
+    .tfbutton2 {
+        border-radius: 0px 5px 5px 0px;
     }
 
 }
