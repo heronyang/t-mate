@@ -16,6 +16,11 @@ body {
     text-align: center;
 }
 
+hr {
+    border: none;
+    border-bottom: 1px solid;
+}
+
 header {
 	background: #fff;
 	position: fixed;
@@ -30,6 +35,12 @@ header {
 
 textarea {
     font-size: 16px;
+}
+
+input {
+    -webkit-appearance: none; !important
+    -webkit-border-radius:0;
+    border-radius:0;
 }
 
 #logo {
@@ -221,7 +232,7 @@ textarea {
 }
 
 .promotion_container {
-    height: 420px;
+    height: 380px;
 }
 
 .design_program {
@@ -286,6 +297,13 @@ textarea {
     margin: auto;
     position: relative;
     top: 100px;
+    padding-bottom: 40px;
+}
+
+.search_container {
+    width: 90%;
+    margin: auto;
+    padding-top: 100px;
     padding-bottom: 40px;
 }
 
@@ -361,6 +379,7 @@ textarea {
 .showcase.promotion {
     display: inline-block;
     padding-top: 40px;
+    width: 100%;
 }
 
 .vertical_center {
@@ -455,12 +474,16 @@ textarea {
 
 footer {
     padding: 50px 0;
-    padding-top: 130px;
+    padding-top: 100px;
+    margin-top: -10px;
     background: #eee;
+    color: #999999;
+    padding-bottom: 100px;
 }
 
 footer p {
-    padding-top: 50px;
+    padding-top: 15px;
+    padding-bottom: 20px;
     text-align: center;
     font-size: 16px;
 }
@@ -770,6 +793,7 @@ label {
     display: inline-block;
     margin-right: 40px;
     font-size: 14px;
+    margin: 0 auto;
 }
 
 .profile_location p {
@@ -1413,6 +1437,17 @@ table {
     .stat p {
         font-size: 15px;
     }
+
+    .promotion_container1 {
+        height: 390px;
+    }
+    .promotion_container2,
+    .promotion_container3 {
+        height: 330px;
+    }
+    .promotion_container .subtitle_des { 
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -1488,7 +1523,82 @@ table {
     }
 
     .promotion_container {
-        height: 680px;
+        height: 620px;
+    }
+
+    #intro_big {
+        padding-top: 15%;
+    }
+
+    .promotion_container1 {
+        height: 630px;
+    }
+    .promotion_container2 {
+        height: 450px;
+    }
+    .promotion_container3 {
+        height: 560px;
+    }
+
+    .index_container .half {
+        width: 100%;
+    }
+
+    #search_searchbar {
+        display: none;
+    }
+
+    .search_container{
+        padding-top: 140px;
+    }
+
+    .one_profile, .one_detail {
+        width: 100%;
+        margin: 0px auto;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .profile_history_center {
+        padding: 0px;
+    }
+
+    #profile_whole {
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 80px;
+    }
+
+    .profile_comment {
+        margin-right: 0px;
+    }
+
+    .profile_rate {
+        width: 30%;
+    }
+
+    .comment {
+        height: 400px;
+    }
+
+    .comment_submit {
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-right: 0px;
+    }
+
+    .comment_score, .comment_submit {
+        float: none;
+    }
+
+    .profile_overview {
+        background: #eee;
+        padding: 0px 5%;
+        margin: 40px 0 0 0;
+    }
+
+    .overview_intro{
+        padding-bottom: 40px;
     }
 
 }

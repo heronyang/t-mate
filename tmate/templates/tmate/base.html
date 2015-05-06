@@ -18,6 +18,7 @@
       <meta name="description" content="Meet Designers and Programmers"/>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
       <meta name="mobile-web-app-capable" content="yes"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
       {% block meta %}{% endblock %}
       {% block static %}
@@ -55,14 +56,20 @@
       <div class="clear"></div>
 
       <footer>
+        <div class="center">
+          <img width="50" src="{% static 'img/tmate-11.png'%}"/>
+        </div>
+
+        <p>Yeqing Deng • Wenzhu Liu • Heron Yang<br />
+        ©2015 Tmate. All rights reserved.</p>
 
         <div class="icon_social">
+          <i class="fa fa-tumblr-square fa-2x"></i>
+          <i class="fa fa-rss-square fa-2x"></i>
           <i class="fa fa-twitter-square fa-2x"></i>
           <i class="fa fa-facebook-square fa-2x"></i>
           <i class="fa fa-envelope-square fa-2x"></i>
         </div>
-        <p>Yeqing Deng • Wenzhu Liu • Heron Yang<br />
-        ©2015 Tmate. All rights reserved.</p>
 
       </footer>
 

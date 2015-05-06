@@ -32,7 +32,7 @@
     </ul>
     <div class="clear"></div>
     <form id="mobile" method="get" action="{% url 'search' %}">
-      <input value="{{key}}" type="search" placeholder="&#xf002;" id="mobile_search" class="search_blank" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
+      <input value="{{key}}" type="search" placeholder="Search" id="mobile_search" class="search_blank" name="q" size="21" maxlength="120" placeholder="Designers? Programmers? Skills?"/>
     </form>
   </nav>
 
@@ -42,7 +42,7 @@
 {% block content %}
 
 <section>
-  <div class="container">
+  <div class="search_container">
     <ul class="show_designer">
      <!-- per designer here -->
       {% for profile in profiles %}
@@ -75,209 +75,16 @@
             <p class="location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> {{profile.location}}</p>
             <div class="profile_location">
                 {% for i in profile.credits_d|get_range %}
-                <i class="fa fa-star" style="color: #777;"></i>
+                <i class="fa fa-star" style="color: #fbb03b;"></i>
                 {% endfor %}
                 {% for i in profile.inv_credits_d|get_range %}
-                <i class="fa fa-star-o" style="color: #777;"></i>
+                <i class="fa fa-star-o" style="color: #fbb03b;"></i>
                 {% endfor %}
                 <p>{{profile.credits}}</p>
             </div>
-            <!--
-            <p class="location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i>
-                -->
 
               {% if is_login %}
-              <a href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
-              {% endif %}
-
-            </p>
-
-          </div>
-        </div>
-      </li>
-      <li class="show_one_designer">
-        <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
-          <a href="{{profile.picture_url}}" target="_blank">
-            <div class="people_profile_container">
-              <img class="people_profile" src="{{profile.picture_url}}"/>
-            </div>
-          </a>
-        </div>
-
-        <div class="clear"></div>
-
-        <div class="show_des">
-          <div class="show_people">
-              <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
-            <div class="position">
-              <p class="position_tag">{{profile.position}}</p>
-            </div>
-          </div>
-          <div class="show_other">
-
-            <div class="skill">
-              {% for ht in profile.skills.all %}
-              <a href="{% url 'search'%}?q={{ht.content}}"><p class="skill_tag">{{ht.content}}</p></a>
-              {% endfor %}
-            </div>
-
-            <p class="location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> {{profile.location}}</p>
-            <p class="location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i>
-
-              {% if is_login %}
-              <a href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
-              {% endif %}
-
-            </p>
-
-          </div>
-        </div>
-      </li>
-      <li class="show_one_designer">
-        <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
-          <a href="{{profile.picture_url}}" target="_blank">
-            <div class="people_profile_container">
-              <img class="people_profile" src="{{profile.picture_url}}"/>
-            </div>
-          </a>
-        </div>
-
-        <div class="clear"></div>
-
-        <div class="show_des">
-          <div class="show_people">
-              <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
-            <div class="position">
-              <p class="position_tag">{{profile.position}}</p>
-            </div>
-          </div>
-          <div class="show_other">
-
-            <div class="skill">
-              {% for ht in profile.skills.all %}
-              <a href="{% url 'search'%}?q={{ht.content}}"><p class="skill_tag">{{ht.content}}</p></a>
-              {% endfor %}
-            </div>
-
-            <p class="location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> {{profile.location}}</p>
-            <p class="location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i>
-
-              {% if is_login %}
-              <a href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
-              {% endif %}
-
-            </p>
-
-          </div>
-        </div>
-      </li>
-      <li class="show_one_designer">
-        <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
-          <a href="{{profile.picture_url}}" target="_blank">
-            <div class="people_profile_container">
-              <img class="people_profile" src="{{profile.picture_url}}"/>
-            </div>
-          </a>
-        </div>
-
-        <div class="clear"></div>
-
-        <div class="show_des">
-          <div class="show_people">
-              <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
-            <div class="position">
-              <p class="position_tag">{{profile.position}}</p>
-            </div>
-          </div>
-          <div class="show_other">
-
-            <div class="skill">
-              {% for ht in profile.skills.all %}
-              <a href="{% url 'search'%}?q={{ht.content}}"><p class="skill_tag">{{ht.content}}</p></a>
-              {% endfor %}
-            </div>
-
-            <p class="location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> {{profile.location}}</p>
-            <p class="location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i>
-
-              {% if is_login %}
-              <a href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
-              {% endif %}
-
-            </p>
-
-          </div>
-        </div>
-      </li>
-      <li class="show_one_designer">
-        <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
-          <a href="{{profile.picture_url}}" target="_blank">
-            <div class="people_profile_container">
-              <img class="people_profile" src="{{profile.picture_url}}"/>
-            </div>
-          </a>
-        </div>
-
-        <div class="clear"></div>
-
-        <div class="show_des">
-          <div class="show_people">
-              <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
-            <div class="position">
-              <p class="position_tag">{{profile.position}}</p>
-            </div>
-          </div>
-          <div class="show_other">
-
-            <div class="skill">
-              {% for ht in profile.skills.all %}
-              <a href="{% url 'search'%}?q={{ht.content}}"><p class="skill_tag">{{ht.content}}</p></a>
-              {% endfor %}
-            </div>
-
-            <p class="location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> {{profile.location}}</p>
-            <p class="location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i>
-
-              {% if is_login %}
-              <a href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
-              {% endif %}
-
-            </p>
-
-          </div>
-        </div>
-      </li>
-      <li class="show_one_designer">
-        <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
-          <a href="{{profile.picture_url}}" target="_blank">
-            <div class="people_profile_container">
-              <img class="people_profile" src="{{profile.picture_url}}"/>
-            </div>
-          </a>
-        </div>
-
-        <div class="clear"></div>
-
-        <div class="show_des">
-          <div class="show_people">
-              <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
-            <div class="position">
-              <p class="position_tag">{{profile.position}}</p>
-            </div>
-          </div>
-          <div class="show_other">
-
-            <div class="skill">
-              {% for ht in profile.skills.all %}
-              <a href="{% url 'search'%}?q={{ht.content}}"><p class="skill_tag">{{ht.content}}</p></a>
-              {% endfor %}
-            </div>
-
-            <p class="location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> {{profile.location}}</p>
-            <p class="location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i>
-
-              {% if is_login %}
-              <a href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
+              <a style="margin-left:10px;" href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
               {% endif %}
 
             </p>
