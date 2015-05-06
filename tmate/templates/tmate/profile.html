@@ -109,17 +109,18 @@
             {{form.score.errors}}
             {{form.score}}
           </div>
-          <div class="comment_submit">
+          <div>
             {% if is_login %}
             <!--<a id="comment_link" href="#"><p>Submit</p></a>-->
             {% else %}
-            <a id="comment_link" href="{% url 'login' %}"><p>Submit</p></a>
+            
+            <input type="submit" value="Submit" class="submit_profile"/>
             {% endif %}
           </div>
           <div class="clear"></div>
         </div>
 
-        <input type="submit" value="Submit"/>
+        
       {% csrf_token %}
       </form>
 
