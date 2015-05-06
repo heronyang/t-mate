@@ -77,3 +77,6 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
+        exclude = ('user', 'author', )
+        labels = {}
+        help_texts = {}

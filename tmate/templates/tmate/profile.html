@@ -10,49 +10,43 @@
 <section id="profile_whole">
 
   <div class="one_profile">
-    <img class="one_profile_img" src="{% static 'img/profile.jpg'%}"/>
+    <img class="one_profile_img" src="{{profile.picture_url}}"/>
     <div class="one_profile_des">
       <div class="one_profile_other">
-        <a id="link_contact" href="contact"><p><i class="fa fa-comment"></i> Contact</p></a>
+        {% if is_login %}
+        <a id="link_contact" href="mailto:{{profile.user.email}}"><p><i class="fa fa-comment"></i> Contact</p></a>
+        {% else %}
+        <a id="link_contact" href="{% url 'login' %}"><p><i class="fa fa-comment"></i> Contact</p></a>
+        {% endif %}
       </div>
     </div>
   </div>
 
   <div class="one_detail">
     <div class="one_detail_people">
-      <h5>Michelle Martinez</h5>
+      <h5>{{profile.print_name}}</h5>
       <div class="position">
         <a href="#">
-          <p class="position_tag">Web Designer</p>
-        </a>
-        <a href="#">
-          <p class="position_tag">UI Designer</p>
+          <p class="position_tag">{{profile.position}}</p>
         </a>
       </div>
     </div>
     <div class="one_detail_skill">
-      <p class="skill_tag"><a href="#">HTML&CSS</a></p>
-      <p class="skill_tag"><a href="#">User Experience Design</a></p>
-      <p class="skill_tag"><a href="#">Photoshop</a></p>
-      <p class="skill_tag"><a href="#">Illustrator</a></p>
-      <p class="skill_tag"><a href="#">InDesign</a></p>
-      <p class="skill_tag"><a href="#">HTML&CSS</a></p>
-      <p class="skill_tag"><a href="#">User Experience Design</a></p>
-      <p class="skill_tag"><a href="#">Photoshop</a></p>
-      <p class="skill_tag"><a href="#">Illustrator</a></p>
-      <p class="skill_tag"><a href="#">InDesign</a></p>
+      {% for ht in profile.skills.all %}
+      <p class="skill_tag"><a href="">{{ht.content}}</a></p>
+      {% endfor %}
     </div>
 
     <div>
-      <div class="profile_location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> <p>Pittsburgh</p></div>
-      <div class="profile_location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i> <p>Pittsburgh</p></div>
+      <div class="profile_location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> <p>{{profile.location}}</p></div>
+      <div class="profile_location"><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star" style="color: #777; "></i><i class="fa fa-star" style="color: #777;"></i><i class="fa fa-star-o" style="color: #777;"></i> <p>{{profile.credits}}</p></div>
     </div>
     <div>
       <div class="profile_location">
-        <img class="resume_img" src="{% static 'img/resume.png' %}"/><a id="link_resume" href="#"><p class="resume">Resume</p></a>
+        <img class="resume_img" src="{% static 'img/resume.png' %}"/><a id="link_resume" href="{{profile.resume_url}}" target="_blank"><p class="resume">Resume</p></a>
       </div>
       <div class="profile_location">
-        <img class="link_img" src="{% static 'img/link.png' %}"/><a id="link_resume" href="#"><p class="resume">Protfolio</p></a>
+        <img class="link_img" src="{% static 'img/link.png' %}"/><a id="link_resume" href="{{profile.portfolio}}" target="_blank"><p class="resume">Protfolio</p></a>
       </div>
     </div>
 
@@ -62,21 +56,7 @@
     <div class="profile_history_center">
       <h2 class="profile_title">Overview</h2>
       <p class="overview_intro">
-        5000+ Working hours and counting. Portfolio can be seen here: http://asaadmahmood.com/ 
-
-        I am an expert UI/UX designer and an expert frontend developer. I create beautiful, innovative and creative designs with the utmost consideration to the User Experience. 
-
-        I am skilled in the following technologies/areas: 
-        UI Design 
-        Web Design 
-        Prototyping (Invision App and Balsamiq) 
-        Wireframe/Mockup generation (Balsamiq and Moqups) 
-        Html5/Css3 
-        Javascript/Jquery 
-        Less/Sass 
-        Compass/Bourbon 
-        Jquery Mobile 
-        Twitter Boo…   
+        {{profile.overview|safe}}
       </p>
     </div>
   </div>
@@ -84,73 +64,65 @@
   <div class="profile_history">
     <div class="profile_history_center">
       <h2 class="profile_title">Work History&Overview</h2>
+
+      {% for c in comments %}
       <div class="profile_history_detail">
         <div class="profile_comment">
-          <h3 class="profile_history_subtitle">iOS App Design Recommendations</h3>
-          <p>“Viktoria not only did great work but also had very valuable recommendations to provide. I really appreciate when I hire a professional, like Viktoria, and they make the project better by being involved. I couldn't be happier.”</p>
-          <p class="profile_date">April 20, 2015</p>
+          <h3 class="profile_history_subtitle">{{c.title}}</h3>
+          <p>“{{c.content}}”</p>
+          <p class="profile_date">{{c.ctime}}</p>
         </div>
         <div class="profile_rate">
-          <h2 class="grade">4.5</h2>
+          <h2 class="grade">{{c.score}}</h2>
           <div class="profile_star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
         </div>
         <div class="clear"></div>
       </div>
-      <div class="profile_history_detail">
-        <div class="profile_comment">
-          <h3 class="profile_history_subtitle">iOS App Design Recommendations</h3>
-          <p>“Viktoria not only did great work but also had very valuable recommendations to provide. I really appreciate when I hire a professional, like Viktoria, and they make the project better by being involved. I couldn't be happier.”</p>
-          <p class="profile_date">April 20, 2015</p>
-        </div>
-        <div class="profile_rate">
-          <h2 class="grade">4.5</h2>
-          <div class="profile_star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <div class="profile_history_detail">
-        <div class="profile_comment">
-          <h3 class="profile_history_subtitle">iOS App Design Recommendations</h3>
-          <p>“Viktoria not only did great work but also had very valuable recommendations to provide. I really appreciate when I hire a professional, like Viktoria, and they make the project better by being involved. I couldn't be happier.”</p>
-          <p class="profile_date">April 20, 2015</p>
-        </div>
-        <div class="profile_rate">
-          <h2 class="grade">4.5</h2>
-          <div class="profile_star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <div class="profile_history_detail">
-        <div class="profile_comment">
-          <h3 class="profile_history_subtitle">iOS App Design Recommendations</h3>
-          <p>“Viktoria not only did great work but also had very valuable recommendations to provide. I really appreciate when I hire a professional, like Viktoria, and they make the project better by being involved. I couldn't be happier.”</p>
-          <p class="profile_date">April 20, 2015</p>
-        </div>
-        <div class="profile_rate">
-          <h2 class="grade">4.5</h2>
-          <div class="profile_star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
-        </div>
-        <div class="clear"></div>
-      </div>
+      {% endfor %}
     </div>
   </div>
   <div class="comment">
     <div class="profile_history_center">
       <h2 class="profile_title">Comments</h2>
-      <input type="text" id="" class="comment_title" name="q" size="21" maxlength="120" placeholder="Title">
 
-      <textarea class="comment_des" rows="4" cols="50" placeholder="Describe this tMate's performance"></textarea>
-      <div class="comment_oneline">
-        <div class="comment_score">
-          <p class="comment_score_p">Score:</p>
-          <div class="comment_score_fa"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
-          <p class="comment_score_p">(4.5)</p>
+      <!--
+      <form action="#" method="POST">
+        {{form}}
+        {% csrf_token %}
+        <input type="submit" value="Submit"/>
+      </form>
+      -->
+
+      <form action="#" method="POST">
+
+        {{form.title.errors}}
+        <input id="id_title" class="comment_title" maxlength="1024" name="title" type="text" placeholder="Title">
+
+        {{form.content.errors}}
+        <textarea class="comment_des" cols="50" rows="4" id="id_content" name="content" placeholder="Comment on this TMate profile"></textarea>
+
+        <div class="comment_oneline">
+          <div class="comment_score">
+            <p class="comment_score_p">Score:</p>
+            <div class="comment_score_fa"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star" ></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+            <p class="comment_score_p">(4.5)</p>
+            {{form.score.errors}}
+            {{form.score}}
+          </div>
+          <div class="comment_submit">
+            {% if is_login %}
+            <!--<a id="comment_link" href="#"><p>Submit</p></a>-->
+            {% else %}
+            <a id="comment_link" href="{% url 'login' %}"><p>Submit</p></a>
+            {% endif %}
+          </div>
+          <div class="clear"></div>
         </div>
-        <div class="comment_submit">
-          <a id="comment_link" href="#"><p>Submit</p></a>
-        </div>
-        <div class="clear"></div>
-      </div>
+
+        <input type="submit" value="Submit"/>
+      {% csrf_token %}
+      </form>
+
     </div>
   </div>
 

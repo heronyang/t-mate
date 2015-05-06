@@ -36,10 +36,30 @@ class Profile(models.Model):
     def _get_email(self):
         return self.user.email
 
+    def _get_credits(self):
+
+        comments = Comment.objects.filter(user=self)
+        total = 0
+
+        if comments.count() <= 0:
+            return 0
+
+        for c in comments:
+            total += c.credits
+
+        return total * 1.0 / comments.count()
+
+    def _get_credits_d(self):
+        return int(_get_credits(self))
+
+
     # properties
     print_name  = property(_get_print_name)
     username    = property(_get_username)
     email       = property(_get_email)
+
+    credits     = property(_get_credits)
+    credits_d   = property(_get_credits_d)
 
     location    = models.CharField(blank=True, max_length=const.SHORT_TEXT_LENGTH)
 
@@ -68,6 +88,8 @@ class Comment(models.Model):
 
     user        = models.ForeignKey(User, related_name="+")
     author      = models.ForeignKey(User, related_name="+")
+    title       = models.CharField(max_length=const.SHORT_TEXT_LENGTH)
     content     = models.TextField()
     score       = models.IntegerField(max_length=5, choices=CHOICES)
+    ctime       = models.DateTimeField(auto_now_add=True)
 

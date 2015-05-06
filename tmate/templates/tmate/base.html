@@ -24,6 +24,7 @@
       {% endblock %}
 
     </head>
+    {% autoescape on %}
     <body>
 
       {% block nav %}
@@ -74,4 +75,5 @@
       {% endblock %}
 
     </body>
+    {% endautoescape %}
   </html>

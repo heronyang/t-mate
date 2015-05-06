@@ -37,6 +37,7 @@ def index(request):
     return render(request, 'tmate/index.html', context)
 
 def profile(request, uid):
+
     is_login = False
     if request.user and request.user.is_authenticated():
         is_login = True
@@ -47,9 +48,33 @@ def profile(request, uid):
     except ObjectDoesNotExist:
         return render(request, 'tmate/404.html', {})
 
+    comments = Comment.objects.filter(user=u)
+
+    # is not login
+    if not is_login:
+        form = CommentForm()
+        context = {
+                'profile': profile,
+                'is_login': is_login,
+                'form': form,
+                'comments': comments,
+                }
+        return render(request, 'tmate/profile.html', context)
+
+    new_comment = Comment(user=u, author=request.user)
+    form = CommentForm(instance=new_comment)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=new_comment)
+
+    if form.is_valid():
+        form.save()
+
     context = {
             'profile': profile,
             'is_login': is_login,
+            'form': form,
+            'comments': comments,
             }
     return render(request, 'tmate/profile.html', context)
 
