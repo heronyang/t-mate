@@ -44,7 +44,7 @@
 <section>
   <div class="search_container">
     <ul class="show_designer">
-     <!-- per designer here -->
+      <!-- per designer here -->
       {% for profile in profiles %}
       <li class="show_one_designer">
         <div class="showone" style="width: 100%; height:auto; overflow:hidden;">
@@ -59,7 +59,7 @@
 
         <div class="show_des">
           <div class="show_people">
-              <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
+            <a href="{% url 'profile' profile.user.id %}"><h5>{{profile.print_name}}</h5></a>
             <div class="position">
               <p class="position_tag">{{profile.position}}</p>
             </div>
@@ -74,30 +74,31 @@
 
             <p class="location"><i class="fa fa-map-marker fa-2x" style="color: #777; padding: 0.5em 0;"></i> {{profile.location}}</p>
             <div class="profile_location">
-                {% for i in profile.credits_d|get_range %}
-                <i class="fa fa-star" style="color: #fbb03b;"></i>
-                {% endfor %}
-                {% for i in profile.inv_credits_d|get_range %}
-                <i class="fa fa-star-o" style="color: #fbb03b;"></i>
-                {% endfor %}
-                <p>{{profile.credits}}</p>
+              {% for i in profile.credits_d|get_range %}
+              <i class="fa fa-star" style="color: #fbb03b;"></i>
+              {% endfor %}
+              {% for i in profile.inv_credits_d|get_range %}
+              <i class="fa fa-star-o" style="color: #fbb03b;"></i>
+              {% endfor %}
+              <p>{{profile.credits}}</p>
             </div>
 
-              {% if is_login %}
-              <a style="margin-left:10px;" href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
-              {% endif %}
+            {% if is_login %}
+            <a style="margin-left:10px;" href="mailto:{{profile.email}}"><i class="fa fa-envelope"></i></a>
+            {% endif %}
 
-            </p>
+          </p>
 
-          </div>
         </div>
-      </li>
-      {% endfor %}
+      </div>
+      {% if forloop.counter0|modulo:4 %}<div class="clear"></div>{% endif %}
+    </li>
+    {% endfor %}
 
-    </ul>
-      
-       <div class="clear"></div>
-  </div>
+  </ul>
+
+  <div class="clear"></div>
+</div>
 
 
 </section>

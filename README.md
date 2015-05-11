@@ -1,26 +1,9 @@
 # Notes for T-Mate Design
 
-## Forms
+## Deployed URL
 
-### Registers
+http://t-mate.herokuapp.com/
 
-**basic user**
-- Name
-- Email
-- User Name
-- Job Title
-- Skills (Tags)
-- Location
-- Profile Image
-- Porfolio / Github Link (optional)
-- Resume (optional)
-- Password
+## Git Repository
 
-**find people**
-- Company or Individual
-- Email
-- User Name
-- Display Name
-- Location
-- Site Link (optional)
-- Password
+https://github.com/heronyang/t-mate
