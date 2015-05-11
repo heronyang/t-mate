@@ -136,7 +136,9 @@
             </div>
             <p id="score_display" class="comment_score_p">(0)</p>
             {{form.score.errors}}
-            <!--{{form.score}}-->
+            <div style="display:none;">
+            {{form.score}}
+            </div>
           </div>
             {% if is_login %}
             <div>
