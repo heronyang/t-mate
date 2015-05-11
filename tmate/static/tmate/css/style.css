@@ -853,7 +853,7 @@ label {
 }
 
 .overview_intro {
-    padding:0 0 20px 0;
+    padding:0 0 40px 0;
     font-size: 16px;
 }
 
@@ -980,6 +980,7 @@ label {
 
 .comment_oneline {
     margin-top: 10px;
+    margin-bottom: 25px;
 }
 
 #login_title {
@@ -1295,6 +1296,13 @@ table {
 
     html {
         font-size: 13px;
+    }
+
+    .search_container {
+        width: 90%;
+        margin: auto;
+        padding-top: 140px;
+        padding-bottom: 40px;
     }
 
     .text_area {
